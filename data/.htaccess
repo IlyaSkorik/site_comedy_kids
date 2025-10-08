@@ -1,0 +1,12 @@
+# Разрешаем доступ к JSON-файлам через браузер
+<Files "*.json">
+    Require all granted
+</Files>
+
+# Запрещаем листинг папки
+Options -Indexes
+
+# Дополнительная защита: запрещаем выполнение PHP
+<Files "*.php">
+    Require all denied
+</Files>
