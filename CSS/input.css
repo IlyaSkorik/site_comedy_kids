@@ -158,7 +158,11 @@
   .animate-gradient-slide{
     animation: gradient-slide 3s ease infinite alternate;
   }
-  
+
+  .form-input:invalid:not(:placeholder-shown):not(:focus) {
+    @apply border-(--accent40);
+  }
+
 }
 
 
