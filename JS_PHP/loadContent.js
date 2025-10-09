@@ -1,8 +1,8 @@
 // === Загрузка данных на главную страницу ===
 document.addEventListener('DOMContentLoaded', function () {
-    
+    let contentDataLoaded = false;
+    let animationStarted = false;
 
-    
     // 1. Загрузка статистики и контактов
     fetch('/data/content.json?t=' + Date.now())
         .then(r => r.ok ? r.json() : {})
@@ -10,9 +10,20 @@ document.addEventListener('DOMContentLoaded', function () {
             const exp = document.querySelector('#stat-experience');
             const stud = document.querySelector('#stat-students');
             const events = document.querySelector('#stat-events');
-            if (exp && content.stat_experience) exp.textContent = content.stat_experience;
-            if (stud && content.stat_students) stud.textContent = content.stat_students;
-            if (events && content.stat_events) events.textContent = content.stat_events;
+            
+            // Обновляем текст и устанавливаем data-target атрибуты
+            if (exp && content.stat_experience) {
+                exp.textContent = content.stat_experience;
+                exp.setAttribute('data-target', content.stat_experience.replace(/\D/g, ''));
+            }
+            if (stud && content.stat_students) {
+                stud.textContent = content.stat_students;
+                stud.setAttribute('data-target', content.stat_students.replace(/\D/g, ''));
+            }
+            if (events && content.stat_events) {
+                events.textContent = content.stat_events;
+                events.setAttribute('data-target', content.stat_events.replace(/\D/g, ''));
+            }
 
             const phone = document.querySelector('#contact-phone');
             const phoneLink = document.querySelector('#contact-phone-link');
@@ -25,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (address && content.contact_address) address.textContent = content.contact_address;
             if (email && content.contact_email) email.textContent = content.contact_email;
             if (emailLink && content.contact_email) emailLink.setAttribute('href', 'mailto:' + content.contact_email);
+            
+            contentDataLoaded = true;
         })
         .catch(e => console.error('Ошибка загрузки content.json:', e));
 
@@ -81,4 +94,53 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
         .catch(e => console.error('Ошибка загрузки teachers.json:', e));
+
+    // === Счётчики в hero ===
+    function animateCounter(element, target) {
+        let current = 0;
+        const increment = target / 100;
+        const hasPlus = element.textContent.includes('+');
+        
+        // Сбрасываем значение перед анимацией
+        element.textContent = '0' + (hasPlus ? '+' : '');
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current) + (hasPlus ? '+' : '');
+        }, 20);
+    }
+
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animationStarted) {
+                setTimeout(() => {
+                    document.querySelectorAll('.stat-number').forEach(stat => {
+                        let target;
+                        if (stat.hasAttribute('data-target')) {
+                            target = parseInt(stat.getAttribute('data-target'));
+                        } else {
+                            target = parseInt(stat.textContent.replace(/\D/g, ''));
+                        }
+                        
+                        if (target > 0) {
+                            animateCounter(stat, target);
+                        }
+                    });
+                    animationStarted = true;
+                    heroObserver.unobserve(entry.target);
+                }, 500);
+            }
+        });
+    }, { 
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    if (document.querySelector('.hero')) {
+        heroObserver.observe(document.querySelector('.hero'));
+    }
 });

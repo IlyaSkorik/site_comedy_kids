@@ -75,35 +75,7 @@ document.querySelectorAll('.section-title, .section-subtitle, .program-card, .be
     observer.observe(el);
 });
 
-// === Счётчики в hero ===
-function animateCounter(element, target) {
-    let current = 0;
-    const increment = target / 100;
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
-    }, 20);
-}
 
-const heroObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            document.querySelectorAll('.stat-number').forEach(stat => {
-                const target = parseInt(stat.textContent.replace(/\D/g, ''));
-                animateCounter(stat, target);
-            });
-            heroObserver.unobserve(entry.target);
-        }
-    });
-});
-
-if (document.querySelector('.hero')) {
-    heroObserver.observe(document.querySelector('.hero'));
-}
 
 
 
@@ -124,7 +96,7 @@ document.querySelectorAll('img[data-src]').forEach(img => {
 // === Кнопка "Наверх" ===
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-scrollToTopBtn.className = 'fixed bottom-5 right-5 w-12 h-12 bg-(--secondary) text-(--text) border-none rounded-[50%] cursor-pointer flex items-center justify-center shadow=[0_5px_15px_rgba(0,0,0,0.3)] z-[999] transition-all duration-300 ease-linear opacity-0 pointer-events-none hover:bg-(--primary) hover:text-(--bg) hover:translate-y-[-3px] hover:shadow-[0_8px_25px_rgba(139,0,139,0.4);]';
+scrollToTopBtn.className = 'fixed bottom-5 right-5 w-12 h-12 bg-(--secondary) text-(--text) border-none rounded-[50%] cursor-pointer flex items-center justify-center shadow=[0_5px_15px_rgba(0,0,0,0.3)] z-[998] transition-all duration-300 ease-linear opacity-0 pointer-events-none hover:bg-(--primary) hover:text-(--bg) hover:translate-y-[-3px] hover:shadow-[0_8px_25px_rgba(139,0,139,0.4);]';
 document.body.appendChild(scrollToTopBtn);
 
 scrollToTopBtn.addEventListener('click', () => {
