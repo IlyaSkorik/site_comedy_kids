@@ -22,7 +22,7 @@ function openModal(fullText) {
     // Показываем модалку плавно
     modal.classList.remove('pointer-events-none');
     modal.classList.remove('opacity-0');
-    
+
     // Через небольшую задержку анимируем контент
     setTimeout(() => {
         if (modalContent) {
@@ -53,7 +53,7 @@ function initTestimonialModals() {
     let modal = document.querySelector('#review-modal');
     if (!modal) {
         modal = document.createElement('div');
-        modal.id = 'review-modal';   
+        modal.id = 'review-modal';
         modal.className = 'fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.6)] flex justify-center items-center z-[9999] opacity-0 pointer-events-none transition-opacity duration-300';
         modal.innerHTML = `
             <div class="bg-[var(--bg)] overflow-y-auto p-7 rounded-2xl w-4/5 max-w-3/4 shadow-[0_10px_40px_rgba(0,0,0,0.3)] opacity-0 scale-95 transition-all duration-300 ease-out transform relative">
@@ -96,22 +96,22 @@ function handleReadMoreClick(e) {
 
 document.addEventListener('DOMContentLoaded', function () {
     // 4. Загрузка отзывов
-fetch('/data/testimonials.json?t=' + Date.now())
-    .then(r => r.ok ? r.json() : [])
-    .then(testimonials => {
-        const container = document.getElementById('testimonials-container');
-        if (!container) return;
-        container.innerHTML = '';
+    fetch('/data/testimonials.json?t=' + Date.now())
+        .then(r => r.ok ? r.json() : [])
+        .then(testimonials => {
+            const container = document.getElementById('testimonials-container');
+            if (!container) return;
+            container.innerHTML = '';
 
-        // --- Десктоп версия ---
-for (let i = 0; i < testimonials.length; i += 4) {
-    const chunk = testimonials.slice(i, i + 4);
-    const desktopSlide = document.createElement('div');
-    desktopSlide.className = i === 0 
-        ? 'testimonial-slide active desktop-version block relative w-full h-auto' 
-        : 'testimonial-slide desktop-version none relative w-full h-auto';
-    
-    desktopSlide.innerHTML = `
+            // --- Десктоп версия ---
+            for (let i = 0; i < testimonials.length; i += 4) {
+                const chunk = testimonials.slice(i, i + 4);
+                const desktopSlide = document.createElement('div');
+                desktopSlide.className = i === 0
+                    ? 'testimonial-slide active desktop-version block relative w-full h-auto'
+                    : 'testimonial-slide desktop-version none relative w-full h-auto';
+
+                desktopSlide.innerHTML = `
         <div class="grid grid-cols-2 gap-6 mb-8 w-full">
             ${chunk.map(t => `
                 <div class="max-h-56 bg-[var(--secondary50)] rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-row">
@@ -127,6 +127,7 @@ for (let i = 0; i < testimonials.length; i += 4) {
                             <p class="text-base leading-[1.6] opacity-90 m-0">
                                 ${truncateText(t.text, 200)}
                             </p>
+                            ${t.text.length > 200 ? `
                             <div class="testimonial-item w-full flex justify-end mt-4">
                                 <button type="button" class="btn-read-more bg-[var(--primary)] text-[var(--bg)] p-1.5 px-3 rounded-3xl text-xs font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full="${escapeHtml(t.text)}">
                                     Читать больше
@@ -135,57 +136,62 @@ for (let i = 0; i < testimonials.length; i += 4) {
                                     </svg>
                                 </button>
                             </div>
+                            ` : ''}
                         </div>
                     </div>
                 </div>
             `).join('')}
         </div>
     `;
-    container.appendChild(desktopSlide);
-}
+                container.appendChild(desktopSlide);
+            }
 
-        // --- Мобильная версия ---
-        testimonials.forEach(t => {
-            const mobileSlide = document.createElement('div');
-            mobileSlide.className = 'testimonial-slide mobile-version';
-            mobileSlide.innerHTML = `
-                <div class="testimonials-container testimonials-container-mobile">
-                    <div class="testimonial-card active">
-                        <div class="testimonial-author">
-                            <img src="${t.image}?t=${Date.now()}" alt="${t.name}" loading="lazy">
+            // --- Мобильная версия ---
+            testimonials.forEach(t => {
+                const mobileSlide = document.createElement('div');
+                mobileSlide.className = 'testimonial-slide mobile-version block relative w-full h-auto';
+                mobileSlide.innerHTML = `
+                <div class="testimonials-container testimonials-container-mobile min-h-[430px] grid grid-cols-1 mb-8 w-full h-full">
+                    <div class="testimonial-card active bg-[var(--secondary50)] rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-col">
+                        <div class="relative mt-4 w-full h-52 max-w-full aspect-auto flex justify-center">
+                            <img class="w-40 h-52 rounded-(--border-radius-md) object-cover transition-transform duration-300 ease" src="${t.image}?t=${Date.now()}" alt="${t.name}" loading="lazy">
                         </div>
-                        <div class="testimonial-content">
-                            <div class="author-overlay">
-                                <h4>${t.name}</h4>
-                                <span>${t.role}</span>
+                        <div class="flex h-full my-0 flex-col px-4 pt-4">
+                            <div class="text-sm text-center mb-4">
+                                <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 text-xl text-[var(--primary)]">${t.name}</h4>
+                                <span class="m-0 text-lg opacity-90">${t.role}</span>
                             </div>
-                            <p class="testimonial-text" >
-                                ${truncateText(t.text, 200)}
-                                <button type="button" class="btn-read-more" data-full='${escapeHtml(t.text)}'>
+                            <p class="text-sm opacity-90 m-0" >
+                                ${truncateText(t.text, 200)}                                
+                            </p>                            
+                        </div>
+                        ${t.text.length > 200 ? `
+                            <div class="testimonial-item w-full flex justify-end mt-1 pr-4 pb-4">
+                                <button type="button" class="btn-read-more bg-[var(--primary)] text-[var(--bg)] p-1 px-2 rounded-3xl text-xs font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full='${escapeHtml(t.text)}'>
                                     Читать больше
                                     <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
                                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>
                                     </svg>
                                 </button>
-                            </p>
-                        </div>
+                            </div>
+                         ` : ''}
                     </div>
                 </div>
             `;
-            container.appendChild(mobileSlide);
-        });
+                container.appendChild(mobileSlide);
+            });
 
-        // ✅ Запускаем слайдер
-        if (typeof initTestimonialsSlider === 'function') {
-            initTestimonialsSlider();
-        } else {
-            console.error('Функция initTestimonialsSlider не найдена');
-        }
+            // ✅ Запускаем слайдер
+            if (typeof initTestimonialsSlider === 'function') {
+                initTestimonialsSlider();
+            } else {
+                console.error('Функция initTestimonialsSlider не найдена');
+            }
 
-        // ✅ Инициализируем модалку ПОСЛЕ генерации кнопок
-        initTestimonialModals();
-    })
-    .catch(e => console.error('Ошибка загрузки testimonials.json:', e));
+            // ✅ Инициализируем модалку ПОСЛЕ генерации кнопок
+            initTestimonialModals();
+        })
+        .catch(e => console.error('Ошибка загрузки testimonials.json:', e));
 });
 
 function initTestimonialsSlider() {
@@ -331,47 +337,47 @@ function initTestimonialsSlider() {
     }
 
     function updateIndicators() {
-    // Обновляем кнопки
-    if (prevBtn) {
-        if (currentIndex === 0) {
-            prevBtn.classList.remove('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
-            svgprevBtn.classList.remove('fill-(--bg)')
-            prevBtn.classList.add('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
-            svgprevBtn.classList.add('fill-(--text)', 'opacity-80')
-        } else {
-            prevBtn.classList.remove('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
-            svgprevBtn.classList.remove('fill-(--text)', 'opacity-80')
-            prevBtn.classList.add('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
-            svgprevBtn.classList.add('fill-(--bg)')
+        // Обновляем кнопки
+        if (prevBtn) {
+            if (currentIndex === 0) {
+                prevBtn.classList.remove('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
+                svgprevBtn.classList.remove('fill-(--bg)')
+                prevBtn.classList.add('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
+                svgprevBtn.classList.add('fill-(--text)', 'opacity-80')
+            } else {
+                prevBtn.classList.remove('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
+                svgprevBtn.classList.remove('fill-(--text)', 'opacity-80')
+                prevBtn.classList.add('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
+                svgprevBtn.classList.add('fill-(--bg)')
+            }
         }
-    }   
 
-    if (nextBtn) {
-        if (currentIndex === slides.length - 1) {
-            nextBtn.classList.remove('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
-            svgnextBtn.classList.remove('fill-(--bg)')
-            nextBtn.classList.add('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
-            svgnextBtn.classList.add('fill-(--text)', 'opacity-80')
-        } else {
-            nextBtn.classList.remove('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
-            svgnextBtn.classList.remove('fill-(--text)', 'opacity-80')
-            nextBtn.classList.add('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
-            svgnextBtn.classList.add('fill-(--bg)')
+        if (nextBtn) {
+            if (currentIndex === slides.length - 1) {
+                nextBtn.classList.remove('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
+                svgnextBtn.classList.remove('fill-(--bg)')
+                nextBtn.classList.add('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
+                svgnextBtn.classList.add('fill-(--text)', 'opacity-80')
+            } else {
+                nextBtn.classList.remove('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
+                svgnextBtn.classList.remove('fill-(--text)', 'opacity-80')
+                nextBtn.classList.add('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
+                svgnextBtn.classList.add('fill-(--bg)')
+            }
         }
+
+        // Обновляем индикаторы
+        const indicatorDots = document.querySelectorAll('#slider-indicators #indicator-dot');
+        indicatorDots.forEach((indicator, index) => {
+            if (index === currentIndex) {
+                indicator.classList.add('bg-(--accent)', 'scale-140');
+                indicator.classList.remove('bg-(--secondary70)');
+            } else {
+                indicator.classList.remove('bg-(--accent)', 'scale-140');
+                indicator.classList.add('bg-(--secondary70)');
+            }
+        });
     }
-
-    // Обновляем индикаторы
-    const indicatorDots = document.querySelectorAll('#slider-indicators #indicator-dot');
-    indicatorDots.forEach((indicator, index) => {
-        if (index === currentIndex) {
-            indicator.classList.add('bg-(--accent)', 'scale-140');
-            indicator.classList.remove('bg-(--secondary70)');
-        } else {
-            indicator.classList.remove('bg-(--accent)', 'scale-140');
-            indicator.classList.add('bg-(--secondary70)');
-        }
-    });
-}
 
     // События
     if (nextBtn) nextBtn.addEventListener('click', nextSlide);
@@ -381,7 +387,7 @@ function initTestimonialsSlider() {
     updateIndicators();
 
     // Перезапуск при ресайзе
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         clearTimeout(this.resizeTimer);
         this.resizeTimer = setTimeout(() => {
             initTestimonialsSlider();
