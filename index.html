@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
 </head>
 
-<body class="leading-[var(--line-height)] text-[var(--text)] bg-[var(--bg)] font-[Raleway]">
+<body class="leading-[var(--line-height)] text-[var(--text)] bg-[var(--bg)] font-[Raleway] overflow-x-hidden">
     <!-- Header mobile overlay -->
     <div id="mobile-overlay"
         class="md:hidden fixed inset-0 z-50 opacity-0 pointer-events-none bg-[rgba(0,0,0,0.5)] backdrop-blur-sm transition-opacity duration-300 ease-in-out">
@@ -295,14 +295,14 @@
     </section>
 
     <!-- Our Teams Section -->
-    <section class="relative pb-16 man-h-screen flex items-center animate-fade-in-up-delayed" id="gallery">
+    <section class="relative pb-16 flex items-center  justify-center animate-fade-in-up-delayed" id="gallery">
         <img src="img/patern/team.svg"
             class="absolute top-0 left-0 w-full h-full object-cover z-[-1] pointer-events-none block" alt="Паттерн"
             loading="lazy">
-        <div class="my-0 mx-auto px-5 max-w-(--max-width)">
+        <div class="my-0 mx-[1%] lg:mx-[3%] px-5">
             <div class="text-center mb-8">
-                <h2 class="text-2xl mb-5 text-(--primary) tracking-[3px]  animate-fade-in-up"
-                    style="font-family: Dela Gothic One;">Команды <br> COMEDY KIDS </h2>
+                <h2 class="text-2xl xl:text-4xl mb-5 text-(--primary) tracking-[3px]  animate-fade-in-up"
+                    style="font-family: Dela Gothic One;">Команды COMEDY KIDS </h2>
             </div>
             <div class="w-full h-[530px] flex justify-center items-center overflow-visible mt-10">
                 <div class="relative w-full h-full flex justify-center items-center overflow-visible"
