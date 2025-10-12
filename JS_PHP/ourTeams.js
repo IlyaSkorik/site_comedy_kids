@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         teamSlidesContainer.innerHTML = '';
 
         const prevSlide = document.createElement('div');
-        prevSlide.className = 'absolute w-[350px] h-[500px] right-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 brightness-90 opacity-70 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12';
+        prevSlide.className = 'absolute w-[350px] h-[500px] right-0 lg:right-1/2 scale-80 rounded-2xl overflow-hidden grayscale-60 brightness-90 opacity-70 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12';
         prevSlide.id = 'teamSlidePrev';
 
         const activeSlide = document.createElement('div');
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         activeSlide.id = 'teamSlideActive';
 
         const nextSlide = document.createElement('div');
-        nextSlide.className = "absolute w-[350px] h-[500px] left-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 opacity-70 brightness-90 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12";
+        nextSlide.className = "absolute w-[350px] h-[500px] left-0 lg:left-1/2 scale-80 rounded-2xl overflow-hidden grayscale-60 opacity-70 brightness-90 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12";
         nextSlide.id = 'teamSlideNext';
 
         teamSlidesContainer.appendChild(prevSlide);

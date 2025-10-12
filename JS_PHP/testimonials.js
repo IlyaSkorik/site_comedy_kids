@@ -114,18 +114,18 @@ for (let i = 0; i < testimonials.length; i += 4) {
     desktopSlide.innerHTML = `
         <div class="grid grid-cols-2 gap-6 mb-8 w-full">
             ${chunk.map(t => `
-                <div class="min-h-52 bg-[var(--secondary50)] rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-row">
-                    <div class="relative flex-1 aspect-square max-w-52">
+                <div class="max-h-56 bg-[var(--secondary50)] rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-row">
+                    <div class="relative flex-1 aspect-square max-w-40">
                         <img class="w-full h-full object-cover transition-transform duration-300 ease" src="${t.image}?t=${Date.now()}" alt="${t.name}" loading="lazy">
                     </div>
                     <div class="flex flex-2 flex-col justify-center p-6">
                         <div class="mb-2.5 text-[var(--text)] text-sm z-[1]">
                             <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 text-2xl text-[var(--primary)]">${t.name}</h4>
-                            <span class="m-0 text-sm opacity-90">${t.role}</span>
+                            <span class="m-0 text-lg opacity-90">${t.role}</span>
                         </div>
                         <div class="testimonial-item">
                             <p class="text-base leading-[1.6] opacity-90 m-0">
-                                ${truncateText(t.text, 255)}
+                                ${truncateText(t.text, 200)}
                             </p>
                             <div class="testimonial-item w-full flex justify-end mt-4">
                                 <button type="button" class="btn-read-more bg-[var(--primary)] text-[var(--bg)] p-1.5 px-3 rounded-3xl text-xs font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full="${escapeHtml(t.text)}">

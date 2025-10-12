@@ -1,41 +1,15 @@
 // DOM Elements
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
 const ctaButtons = document.querySelectorAll('.cta-btn, .btn-primary');
 const floatingBtn = document.getElementById('floatingBookBtn');
-const navOverlay = document.getElementById('navOverlay'); // Оверлей для меню
 
-
-// === Мобильное меню: открывается по клику, без задержек ===
-function toggleMobileMenu() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    navOverlay.classList.toggle('active');
-
-    // Блокируем прокрутку при открытом меню
-    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-}
-
-// Убираем touchstart — оставляем только click (быстро и стабильно!)
-hamburger.addEventListener('click', toggleMobileMenu);
-
-// Закрытие меню при клике на ссылку
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
 
 // === Плавный скролл ===
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const headerHeight = document.querySelector('#header') ?.offsetHeight || 0;
+            const headerHeight = document.querySelector('#header')?.offsetHeight || 0;
             const targetPosition = target.offsetTop - headerHeight;
             window.scrollTo({
                 top: targetPosition,
@@ -47,37 +21,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // === Анимация хедера при скролле ===
 window.addEventListener('scroll', () => {
-    const header = document.getElementById('header'); // ← без #
+    const header = document.getElementById('header');
     if (!header) return;
 
     if (window.scrollY > 100) {
         header.classList.remove('bg-transparent');
-        header.classList.add('bg-[var(--bg)]'); // ← правильный синтаксис
+        header.classList.add('bg-[var(--bg)]');
     } else {
         header.classList.remove('bg-[var(--bg)]');
         header.classList.add('bg-transparent');
     }
 });
-
-// === Анимация при прокрутке (Intersection Observer) ===
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-        }
-    });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
-
-document.querySelectorAll('.section-title, .section-subtitle, .program-card, .benefit-item, .testimonial-card').forEach(el => {
-    observer.observe(el);
-});
-
-
-
-
 
 // === Lazy loading ===
 document.querySelectorAll('img[data-src]').forEach(img => {
@@ -96,7 +50,7 @@ document.querySelectorAll('img[data-src]').forEach(img => {
 // === Кнопка "Наверх" ===
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-scrollToTopBtn.className = 'fixed bottom-5 right-5 w-12 h-12 bg-(--secondary) text-(--text) border-none rounded-[50%] cursor-pointer flex items-center justify-center shadow=[0_5px_15px_rgba(0,0,0,0.3)] z-[998] transition-all duration-300 ease-linear opacity-0 pointer-events-none hover:bg-(--primary) hover:text-(--bg) hover:translate-y-[-3px] hover:shadow-[0_8px_25px_rgba(139,0,139,0.4);]';
+scrollToTopBtn.className = 'fixed bottom-5 right-5 w-12 h-12 bg-(--secondary) text-(--text) border-none rounded-[50%] cursor-pointer flex items-center justify-center shadow=[0_5px_15px_rgba(0,0,0,0.3)] z- transition-all duration-300 ease-linear opacity-0 pointer-events-none hover:bg-(--primary) hover:text-(--bg) hover:translate-y-[-3px] hover:shadow-[0_8px_25px_rgba(139,0,139,0.4);]';
 document.body.appendChild(scrollToTopBtn);
 
 scrollToTopBtn.addEventListener('click', () => {
@@ -108,43 +62,98 @@ scrollToTopBtn.addEventListener('click', () => {
 
 window.addEventListener('scroll', () => {
     if (window.pageYOffset > 500) {
-        scrollToTopBtn.classList.remove('pointer-events-none'); 
+        scrollToTopBtn.classList.remove('pointer-events-none');
         scrollToTopBtn.classList.remove("opacity-0");
         scrollToTopBtn.classList.add('opacity-100');
-        scrollToTopBtn.classList.add('pointer-events-auto');        
+        scrollToTopBtn.classList.add('pointer-events-auto');
     } else {
-        scrollToTopBtn.classList.remove('pointer-events-auto'); 
+        scrollToTopBtn.classList.remove('pointer-events-auto');
         scrollToTopBtn.classList.remove("opacity-100");
         scrollToTopBtn.classList.add('opacity-0');
-        scrollToTopBtn.classList.add('pointer-events-none'); 
+        scrollToTopBtn.classList.add('pointer-events-none');
     }
-});
-
-// === Анимация карточек программ ===
-document.querySelectorAll('.program-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px)';
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-    });
-});
-
-// === Задержка анимации benefit-item ===
-document.querySelectorAll('.benefit-item').forEach((item, index) => {
-    item.style.animationDelay = `${index * 0.1}s`;
 });
 
 // === Floating button ===
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        floatingBtn ?.classList.add('show');
-    } else {
-        floatingBtn ?.classList.remove('show');
+    if (floatingBtn) {
+        const handleScroll = () => {
+            if (window.innerWidth >= 1024) {
+                return;
+            }
+            if (window.scrollY > 500) {
+                floatingBtn.classList.remove('opacity-0', 'pointer-events-none');
+                floatingBtn.classList.add('opacity-100');
+            } else {
+                floatingBtn.classList.remove('opacity-100');
+                floatingBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
     }
 });
 
-floatingBtn ?.addEventListener('click', (e) => {
+floatingBtn?.addEventListener('click', (e) => {
     e.preventDefault();
-    openFormModal();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-overlay');
+    const lines = hamburger.querySelectorAll('.hamburger-line');
+    const header = document.getElementById('header');
+
+    function openMenu() {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenu.classList.add('translate-x-0', 'pointer-events-auto');
+        overlay.classList.remove('hidden', 'opacity-0');
+        overlay.classList.add('opacity-100', 'pointer-events-auto');
+
+        // Анимация → крестик (2 линии)
+        lines[0].style.transform = 'rotate(45deg) translate(5px, 4px)';
+        lines[1].style.transform = 'rotate(-45deg) translate(5px, -4px)';
+
+        document.body.style.overflow = 'hidden';
+
+        if (window.scrollY < 100) {
+            header.classList.remove('bg-transparent');
+            header.classList.add('bg-[var(--bg)]');
+        }        
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenu.classList.remove('translate-x-0', 'pointer-events-auto');
+        overlay.classList.remove('opacity-100', 'pointer-events-auto');
+        overlay.classList.add('hidden', 'opacity-0');
+        // Анимация → гамбургер
+        lines[0].style.transform = 'rotate(0) translate(0, 0)';
+        lines[1].style.transform = 'rotate(0) translate(0, 0)';
+
+        document.body.style.overflow = '';
+
+        if (window.scrollY > 100) return;
+        else {
+            header.classList.remove('bg-[var(--bg)]');
+            header.classList.add('bg-transparent');
+        }        
+    }
+
+    hamburger.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('translate-x-full')) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    });
+
+    overlay.addEventListener('click', closeMenu);
+
+    // Закрытие при клике на ссылку
+    document.querySelectorAll('#mobile-menu a, #mobile-menu button').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
 });
