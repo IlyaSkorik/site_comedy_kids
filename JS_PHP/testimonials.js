@@ -112,13 +112,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     : 'testimonial-slide desktop-version none relative w-full h-auto';
 
                 desktopSlide.innerHTML = `
-        <div class="grid grid-cols-2 gap-6 mb-8 w-full">
+        <div class="grid grid-cols-2 gap-4 mb-8 w-full">
             ${chunk.map(t => `
                 <div class="max-h-56 bg-[var(--secondary50)] rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-row">
                     <div class="relative flex-1 aspect-square max-w-40">
                         <img class="w-full h-full object-cover transition-transform duration-300 ease" src="${t.image}?t=${Date.now()}" alt="${t.name}" loading="lazy">
                     </div>
-                    <div class="flex flex-2 flex-col justify-center p-6">
+                    <div class="flex flex-2 flex-col justify-start p-6">
                         <div class="mb-2.5 text-[var(--text)] text-sm z-[1]">
                             <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 text-2xl text-[var(--primary)]">${t.name}</h4>
                             <span class="m-0 text-lg opacity-90">${t.role}</span>
