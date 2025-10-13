@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img class="w-full h-full object-cover transition-all duration-300 ease-in" src="${teacher.image}?t=${Date.now()}" alt="${teacher.alt}" class="teacher-main-img" loading="lazy">
                     </div>
                     <div class="flex content-start flex-col flex-wrap absolute left-0 right-0 bottom-0 p-6 bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)] text-center rounded-b-(--border-radius-md)">
-                        <h3 class="w-full font-[Dela_Gothic_One] text-xl tracking-[1px] mb-2.5 text-(--primary)">${teacher.name}</h3>
-                        <p class="text-sm mb-3.5 font-medium">${teacher.role}</p>
+                        <h3 class="w-full font-[Dela_Gothic_One] text-xl xl:text-2xl tracking-[1px] mb-2.5 text-(--primary)">${teacher.name}</h3>
+                        <p class="text-sm xl:text-base mb-3.5 font-medium">${teacher.role}</p>
                     </div>
                 `;
                 container.appendChild(card);
