@@ -1477,6 +1477,11 @@
       margin-inline: 3%;
     }
   }
+  .lg\:mb-0 {
+    @media (width >= 64rem) {
+      margin-bottom: calc(var(--spacing) * 0);
+    }
+  }
   .lg\:flex {
     @media (width >= 64rem) {
       display: flex;
