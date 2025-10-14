@@ -50,15 +50,15 @@ document.addEventListener('DOMContentLoaded', function () {
             container.innerHTML = '';
             programs.forEach(program => {
                 const card = document.createElement('div');
-                card.className = 'program-card animate bg-(--secondary50) py-5 px-7 rounded-(--border-radius-md) shadow-[0_10px_30px_var(--color-shadow)] relative transition-transform duration-300 ease-linear flex justify-between flex-col';
+                card.className = 'program-card xl:w-1/3 animate bg-(--secondary50) py-5 px-7 rounded-(--border-radius-md) shadow-[0_10px_30px_var(--color-shadow)] relative transition-transform duration-300 ease-linear flex justify-between flex-col';
                 if (program.id === 2) card.classList.add('featured');
                 card.innerHTML = `
                     <div class="h-16 w-full flex justify-center">
                         <img class="h-full mb-5" src="${program.image}?t=${Date.now()}" alt="${program.title}" >
                     </div> 
-                    <h3 class="font-[Dela_Gothic_One] text-xl tracking-[1px] mb-2.5 text-(--primary) text-center">${program.title}</h3>
-                    <p class="text-base font-semibold mb-5 text-center">${program.subtitle}</p>
-                    <p class="mb-6 text-sm leading-[1.6] indent-7">${program.description}</p>
+                    <h3 class="font-[Dela_Gothic_One] text-xl xl:text-2xl tracking-[1px] mb-2.5 text-(--primary) text-center">${program.title}</h3>
+                    <p class="text-base xl:text-lg font-semibold mb-5 text-center">${program.subtitle}</p>
+                    <p class="mb-6 text-sm xl:text-base leading-[1.6] indent-7">${program.description}</p>
                     <ul class="program-features">
                         ${program.features.map(feat => `<li>${feat}</li>`).join('')}
                     </ul>
