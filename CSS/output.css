@@ -31,6 +31,8 @@
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
     --font-weight-medium: 500;
@@ -500,6 +502,12 @@
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
   }
   .w-2 {
     width: calc(var(--spacing) * 2);
@@ -1583,6 +1591,22 @@
     @media (width >= 80rem) {
       font-size: var(--text-xl);
       line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .\32 xl\:gap-6 {
+    @media (width >= 96rem) {
+      gap: calc(var(--spacing) * 6);
+    }
+  }
+  .\32 xl\:gap-8 {
+    @media (width >= 96rem) {
+      gap: calc(var(--spacing) * 8);
+    }
+  }
+  .\32 xl\:text-5xl {
+    @media (width >= 96rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
   .\32 xl\:text-lg {
