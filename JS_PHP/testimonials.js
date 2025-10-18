@@ -57,8 +57,8 @@ function initTestimonialModals() {
         modal.className = 'fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.6)] flex justify-center items-center z-[9999] opacity-0 pointer-events-none transition-opacity duration-300';
         modal.innerHTML = `
             <div class="bg-[var(--bg)] overflow-y-auto p-7 rounded-2xl w-4/5 max-w-3/4 shadow-[0_10px_40px_rgba(0,0,0,0.3)] opacity-0 scale-95 transition-all duration-300 ease-out transform relative">
-                <span class="absolute top-3.5 right-5 text-2xl font-medium cursor-pointer transition-colors duration-200 hover:text-[var(--primary)]" id="modal-close">&times;</span>
-                <p class="m-0 whitespace-pre-wrap" id="modal-review-text"></p>
+                <span class="absolute top-3.5 right-5 text-2xl fullHD:text-3xl font-medium cursor-pointer transition-colors duration-200 hover:text-[var(--primary)]" id="modal-close">&times;</span>
+                <p class="m-0 fullHD:text-lg whitespace-pre-wrap" id="modal-review-text"></p>
             </div>
         `;
         document.body.appendChild(modal);
@@ -100,8 +100,17 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(r => r.ok ? r.json() : [])
         .then(testimonials => {
             const container = document.getElementById('testimonials-container');
+            let sizeoftext = 200;
+            switch (true){
+                case window.innerWidth >= 1540:
+                    sizeoftext = 300;
+                    break;
+                default:
+                    sizeoftext = 200;
+                    break;
+            }
             if (!container) return;
-            container.innerHTML = '';
+            container.innerHTML = ''
 
             // --- Десктоп версия ---
             for (let i = 0; i < testimonials.length; i += 4) {
@@ -114,22 +123,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 desktopSlide.innerHTML = `
         <div class="grid grid-cols-2 gap-4 mb-8 w-full">
             ${chunk.map(t => `
-                <div class="max-h-56 bg-[var(--secondary50)] rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-row">
-                    <div class="relative flex-1 aspect-square max-w-40">
+                <div class="max-h-56 fullHD:min-h-72 bg-[var(--secondary50)] rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-row">
+                    <div class="relative flex-1 aspect-square max-w-40 fullHD:max-w-52">
                         <img class="w-full h-full object-cover transition-transform duration-300 ease" src="${t.image}?t=${Date.now()}" alt="${t.name}" loading="lazy">
                     </div>
                     <div class="flex flex-2 flex-col justify-start p-6">
-                        <div class="mb-2.5 text-[var(--text)] text-sm z-[1]">
-                            <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 text-2xl text-[var(--primary)]">${t.name}</h4>
+                        <div class="mb-2.5 fullHD:mb-5 text-[var(--text)] text-sm z-[1]">
+                            <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 text-2xl fullHD:text-3xl text-[var(--primary)]">${t.name}</h4>
                             <span class="m-0 text-lg opacity-90">${t.role}</span>
                         </div>
                         <div class="testimonial-item">
-                            <p class="text-base leading-[1.6] opacity-90 m-0">
-                                ${truncateText(t.text, 200)}
+                            <p class="text-base fullHD:text-lg leading-[1.6] opacity-90 m-0">
+                                ${truncateText(t.text, sizeoftext)}
                             </p>
-                            ${t.text.length > 200 ? `
+                            ${t.text.length > sizeoftext? `
                             <div class="testimonial-item w-full flex justify-end mt-4">
-                                <button type="button" class="btn-read-more bg-[var(--primary)] text-[var(--bg)] p-1.5 px-3 rounded-3xl text-xs font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full="${escapeHtml(t.text)}">
+                                <button type="button" class="btn-read-more bg-[var(--primary)] text-[var(--bg)] p-1.5 px-3 rounded-3xl text-xs fullHD:text-sm font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full="${escapeHtml(t.text)}">
                                     Читать больше
                                     <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
                                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>

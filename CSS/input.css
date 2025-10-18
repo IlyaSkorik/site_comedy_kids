@@ -129,20 +129,27 @@
     @apply -rotate-45 translate-[2px] -translate-y-[7px];  
   }
   .btn{
-    @apply    p-[var(--btn-padding)]
-               h-[52px]
-               rounded-[var(--border-radius-full)]
-               font-semibold
-               cursor-pointer
-               transition-[var(--transition)]
-               no-underline
-               flex
-               items-center
-               text-center
-               justify-center
-               gap-2
-               text-[1.2rem]
-               border-none
+    @apply    px-2.5
+              fullHD:px-8
+              py-6
+              h-[52px]
+              fullHD:h-[62px]
+              rounded-[var(--border-radius-full)]
+              font-semibold
+              cursor-pointer
+              no-underline
+              flex
+              items-center
+              text-center
+              justify-center
+              gap-2
+              text-lg
+              fullHD:text-xl
+              border-none
+              transition-all
+              duration-300
+              ease-linear
+
   }
 
   /* Показываем описание на активной карточке */
