@@ -11,6 +11,7 @@
     --spacing: 0.25rem;
     --container-3xs: 16rem;
     --container-lg: 32rem;
+    --container-xl: 36rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
     --container-4xl: 56rem;
@@ -1593,6 +1594,26 @@
       line-height: var(--tw-leading, var(--text-xl--line-height));
     }
   }
+  .\32 xl\:h-\[300px\] {
+    @media (width >= 96rem) {
+      height: 300px;
+    }
+  }
+  .\32 xl\:h-\[350px\] {
+    @media (width >= 96rem) {
+      height: 350px;
+    }
+  }
+  .\32 xl\:max-w-2xl {
+    @media (width >= 96rem) {
+      max-width: var(--container-2xl);
+    }
+  }
+  .\32 xl\:max-w-xl {
+    @media (width >= 96rem) {
+      max-width: var(--container-xl);
+    }
+  }
   .\32 xl\:gap-6 {
     @media (width >= 96rem) {
       gap: calc(var(--spacing) * 6);
@@ -1601,6 +1622,12 @@
   .\32 xl\:gap-8 {
     @media (width >= 96rem) {
       gap: calc(var(--spacing) * 8);
+    }
+  }
+  .\32 xl\:text-2xl {
+    @media (width >= 96rem) {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
   }
   .\32 xl\:text-5xl {
