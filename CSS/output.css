@@ -1758,8 +1758,13 @@
   .animate-fade-in-up-delayed {
     animation: fadeInUp 1s ease 0.4s both;
   }
-  .animate-gradient-slide {
-    animation: gradient-slide 3s ease infinite alternate;
+  .gradient-text {
+    background: linear-gradient(120deg, var(--primary), var(--accent));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-slide 2.5s ease infinite alternate;
   }
 }
 @keyframes fadeInUp {
