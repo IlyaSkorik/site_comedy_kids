@@ -129,7 +129,7 @@
     @apply -rotate-45 translate-[2px] -translate-y-[7px];  
   }
   .btn{
-    @apply    px-2.5
+    @apply    px-5
               fullHD:px-8
               py-6
               h-[52px]
