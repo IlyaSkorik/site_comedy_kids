@@ -88,15 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
         teamSlidesContainer.innerHTML = '';
 
         const prevSlide = document.createElement('div');
-        prevSlide.className = 'absolute w-[350px] 2xl:w-[400px] h-[500px] 2xl:h-[550px] right-0 lg:right-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 brightness-90 opacity-70 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12';
+        prevSlide.className = 'absolute w-[350px] fullHD:w-[400px] h-[500px] fullHD:h-[550px] right-0 lg:right-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 brightness-90 opacity-70 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12';
         prevSlide.id = 'teamSlidePrev';
 
         const activeSlide = document.createElement('div');
-        activeSlide.className = 'team-slide-active absolute w-[350px] 2xl:w-[400px] h-[500px] 2xl:h-[550px] left-[50%] translate-x-[-50%] rounded-2xl overflow-hidden transition-all duration-500 ease cursor-pointer z-[4] bottom-12';
+        activeSlide.className = 'team-slide-active absolute w-[350px] fullHD:w-[400px] h-[500px] fullHD:h-[550px] left-[50%] translate-x-[-50%] rounded-2xl overflow-hidden transition-all duration-500 ease cursor-pointer z-[4] bottom-12';
         activeSlide.id = 'teamSlideActive';
 
         const nextSlide = document.createElement('div');
-        nextSlide.className = "absolute w-[350px] 2xl:w-[400px] h-[500px] 2xl:h-[550px] left-0 lg:left-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 opacity-70 brightness-90 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12";
+        nextSlide.className = "absolute w-[350px] fullHD:w-[400px] h-[500px] fullHD:h-[550px] left-0 lg:left-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 opacity-70 brightness-90 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12";
         nextSlide.id = 'teamSlideNext';
 
         teamSlidesContainer.appendChild(prevSlide);
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const achievementsHtml = isActive && Array.isArray(data.achievements) 
         ? `<div class="absolute p-4 w-full flex gap-2 justify-center flex-wrap">
             ${data.achievements.map(ach => 
-                `<span class="bg-[var(--accent)] px-4 py-1.5 rounded-2xl text-xs 2xl:text-sm flex items-center gap-1 transition-all duration-300 ease">
+                `<span class="bg-[var(--accent)] px-4 py-1.5 rounded-2xl text-xs fullHD:text-sm flex items-center gap-1 transition-all duration-300 ease">
                     <i class="fas fa-star"></i> ${ach}
                 </span>`
             ).join('')}
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             ${achievementsHtml}
             <div class="team-info absolute bottom-0 left-0 right-0 p-6 bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)] rounded-b-[var(--border-radius-md)] transition-transform duration-300 ease ${isActive ? 'opacity-100' : 'opacity-0'} ">
-                <p class="text-sm 2xl:text-base leading-[1.6] mb-3.5">${data.description}</p>
+                <p class="text-sm fullHD:text-base leading-[1.6] mb-3.5">${data.description}</p>
             </div>
         </div>
     `;

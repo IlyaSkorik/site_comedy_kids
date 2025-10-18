@@ -109,7 +109,8 @@
         --btn-font-size: 16px;
         --btn-large-font-size: 18px;
         --transition: all 0.3s ease;
-        --animation-speed: 0.3s;  
+        --animation-speed: 0.3s; 
+        --breakpoint-fullHD: 115rem; 
 }
 
 @layer components {
