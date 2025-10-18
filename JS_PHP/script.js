@@ -50,7 +50,7 @@ document.querySelectorAll('img[data-src]').forEach(img => {
 // === Кнопка "Наверх" ===
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-scrollToTopBtn.className = 'fixed bottom-5 right-5 text-xs w-12 h-12 bg-(--secondary) text-(--text) border-none rounded-[50%] cursor-pointer flex items-center justify-center shadow=[0_5px_15px_rgba(0,0,0,0.3)] z- transition-all duration-300 ease-linear opacity-0 pointer-events-none hover:bg-(--primary) hover:text-(--bg) hover:translate-y-[-3px] hover:shadow-[0_8px_25px_rgba(139,0,139,0.4);]';
+scrollToTopBtn.className = 'fixed bottom-5 right-5 text-xs 2K:text-xl w-12 2K:w-20 h-12 2K:h-20 bg-(--secondary) text-(--text) border-none rounded-[50%] cursor-pointer flex items-center justify-center shadow=[0_5px_15px_rgba(0,0,0,0.3)] z- transition-all duration-300 ease-linear opacity-0 pointer-events-none hover:bg-(--primary) hover:text-(--bg) hover:translate-y-[-3px] hover:shadow-[0_8px_25px_rgba(139,0,139,0.4);]';
 document.body.appendChild(scrollToTopBtn);
 
 scrollToTopBtn.addEventListener('click', () => {

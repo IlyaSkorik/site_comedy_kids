@@ -50,15 +50,15 @@ document.addEventListener('DOMContentLoaded', function () {
             container.innerHTML = '';
             programs.forEach(program => {
                 const card = document.createElement('div');
-                card.className = 'program-card xl:w-1/3 animate bg-(--secondary50) py-5 px-7 rounded-(--border-radius-md) shadow-[0_10px_30px_var(--color-shadow)] relative transition-transform duration-300 ease-linear flex justify-between flex-col';
+                card.className = 'program-card xl:w-1/3 animate bg-(--secondary50) py-5 2K:py-10 px-7 2K:px-12 rounded-(--border-radius-md) 2K:rounded-4xl shadow-[0_10px_30px_var(--color-shadow)] relative transition-transform duration-300 ease-linear flex justify-between flex-col';
                 if (program.id === 2) card.classList.add('featured');
                 card.innerHTML = `
-                    <div class="h-16 fullHD:h-20 w-full flex justify-center">
+                    <div class="h-16 fullHD:h-20 2K:h-32 2K:mb-4 w-full flex justify-center">
                         <img class="h-full mb-5" src="${program.image}?t=${Date.now()}" alt="${program.title}" >
                     </div> 
-                    <h3 class="font-[Dela_Gothic_One] text-xl xl:text-2xl fullHD:text-3xl tracking-[1px] mb-2.5 text-(--primary) text-center">${program.title}</h3>
-                    <p class="text-base xl:text-lg fullHD:text-xl font-semibold mb-5 text-center">${program.subtitle}</p>
-                    <p class="mb-6 text-sm xl:text-base fullHD:text-lg leading-[1.6] indent-7">${program.description}</p>
+                    <h3 class="font-[Dela_Gothic_One] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl tracking-[1px] mb-2.5 text-(--primary) text-center">${program.title}</h3>
+                    <p class="text-base xl:text-lg fullHD:text-xl 2K:text-4xl font-semibold mb-5 text-center">${program.subtitle}</p>
+                    <p class="mb-6 text-sm xl:text-base fullHD:text-lg 2K:text-3xl leading-[1.6] indent-7">${program.description}</p>
                     <ul class="program-features">
                         ${program.features.map(feat => `<li>${feat}</li>`).join('')}
                     </ul>
@@ -80,14 +80,14 @@ document.addEventListener('DOMContentLoaded', function () {
             container.innerHTML = '';
             teachers.forEach(teacher => {
                 const card = document.createElement('div');
-                card.className = "relative w-[350px] fullHD:w-[450px] h-[450px] fullHD:h-[600px] rounded-(--border-radius-md) overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.4)]";
+                card.className = "relative w-[350px] fullHD:w-[450px] 2K:w-[700px] h-[450px] fullHD:h-[600px] 2K:h-[1000px] rounded-(--border-radius-md) 2K:rounded-4xl overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.4)]";
                 card.innerHTML = `
                     <div class="absolute top-0 left-0 right-0 bottom-0 overflow-hidden">
                         <img class="w-full h-full object-cover transition-all duration-300 ease-in" src="${teacher.image}?t=${Date.now()}" alt="${teacher.alt}" class="teacher-main-img" loading="lazy">
                     </div>
-                    <div class="flex content-start fullHD:h-[165px] flex-col flex-wrap absolute left-0 right-0 bottom-0 p-6 bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)] text-center rounded-b-(--border-radius-md)">
-                        <h3 class="w-full font-[Dela_Gothic_One] text-xl xl:text-2xl fullHD:text-3xl tracking-[1px] mb-2.5 text-(--primary)">${teacher.name}</h3>
-                        <p class="text-sm xl:text-base fullHD:text-lg mb-3.5 font-medium">${teacher.role}</p>
+                    <div class="flex content-start fullHD:h-[165px] 2K:h-[200px] flex-col flex-wrap absolute left-0 right-0 bottom-0 p-6 bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)] text-center rounded-b-(--border-radius-md)">
+                        <h3 class="w-full font-[Dela_Gothic_One] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl tracking-[1px] mb-2.5 text-(--primary)">${teacher.name}</h3>
+                        <p class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl mb-3.5 font-medium">${teacher.role}</p>
                     </div>
                 `;
                 container.appendChild(card);

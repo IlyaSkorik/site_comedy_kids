@@ -111,6 +111,7 @@
         --transition: all 0.3s ease;
         --animation-speed: 0.3s; 
         --breakpoint-fullHD: 115rem; 
+        --breakpoint-2K: 155rem; 
 }
 
 @layer components {
@@ -131,10 +132,13 @@
   .btn{
     @apply    px-5
               fullHD:px-8
+              2K:px-10
               py-6
               h-[52px]
               fullHD:h-[62px]
+              2K:h-[92px]
               rounded-[var(--border-radius-full)]
+              2K:rounded-2xl
               font-semibold
               cursor-pointer
               no-underline
@@ -145,6 +149,7 @@
               gap-2
               text-lg
               fullHD:text-xl
+              2K:text-4xl
               border-none
               transition-all
               duration-300

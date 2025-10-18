@@ -88,15 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
         teamSlidesContainer.innerHTML = '';
 
         const prevSlide = document.createElement('div');
-        prevSlide.className = 'absolute w-[350px] fullHD:w-[400px] h-[500px] fullHD:h-[550px] right-0 lg:right-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 brightness-90 opacity-70 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12';
+        prevSlide.className = 'absolute w-[350px] fullHD:w-[400px] 2K:w-[600px] h-[500px] fullHD:h-[550px] 2K:h-[900px] right-0 lg:right-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 brightness-90 opacity-70 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12';
         prevSlide.id = 'teamSlidePrev';
 
         const activeSlide = document.createElement('div');
-        activeSlide.className = 'team-slide-active absolute w-[350px] fullHD:w-[400px] h-[500px] fullHD:h-[550px] left-[50%] translate-x-[-50%] rounded-2xl overflow-hidden transition-all duration-500 ease cursor-pointer z-[4] bottom-12';
+        activeSlide.className = 'team-slide-active absolute w-[350px] fullHD:w-[400px] 2K:w-[600px] h-[500px] fullHD:h-[550px] 2K:h-[900px] left-[50%] translate-x-[-50%] rounded-2xl overflow-hidden transition-all duration-500 ease cursor-pointer z-[4] bottom-12';
         activeSlide.id = 'teamSlideActive';
 
         const nextSlide = document.createElement('div');
-        nextSlide.className = "absolute w-[350px] fullHD:w-[400px] h-[500px] fullHD:h-[550px] left-0 lg:left-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 opacity-70 brightness-90 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12";
+        nextSlide.className = "absolute w-[350px] fullHD:w-[400px] 2K:w-[600px] h-[500px] fullHD:h-[550px] left-0 lg:left-[100%] 2K:h-[900px] scale-80 rounded-2xl overflow-hidden grayscale-60 opacity-70 brightness-90 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12";
         nextSlide.id = 'teamSlideNext';
 
         teamSlidesContainer.appendChild(prevSlide);
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         teamDotsContainer.innerHTML = '';
         teamData.forEach((_, index) => {
             const dot = document.createElement('div');
-            dot.className = 'team-dot-item w-2 h-2 rounded-[50%] cursor-pointer transition-all duration-300';
+            dot.className = 'team-dot-item w-2 2K:w-[10px] h-2 2K:h-[10px] rounded-[50%] cursor-pointer transition-all duration-300';
             if (index === teamCurrentIndex) dot.classList.add('bg-(--accent)'); else dot.classList.add('bg-(--secondary70)');
             dot.dataset.index = index;
             dot.title = `Команда ${index + 1}`;
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function createTeamCard(data, isActive = false) {
     if (!data) return `
-        <div class="relative w-full h-full bg-[var(--bg)] rounded-[var(--border-radius-md)] overflow-hidden shadow-[0_10px_25px_var(--color-shadow)] transition-all duration-300 ease-in flex flex-col">
+        <div class="relative w-full h-full bg-[var(--bg)] rounded-[var(--border-radius-md)] 2K:rounded-4xl overflow-hidden shadow-[0_10px_25px_var(--color-shadow)] transition-all duration-300 ease-in flex flex-col">
             Нет данных
         </div>
     `;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const achievementsHtml = isActive && Array.isArray(data.achievements) 
         ? `<div class="absolute p-4 w-full flex gap-2 justify-center flex-wrap">
             ${data.achievements.map(ach => 
-                `<span class="bg-[var(--accent)] px-4 py-1.5 rounded-2xl text-xs fullHD:text-sm flex items-center gap-1 transition-all duration-300 ease">
+                `<span class="bg-[var(--accent)] px-4 py-1.5 rounded-2xl 2K:rounded-4xl text-xs fullHD:text-sm 2K:text-2xl flex items-center gap-1 transition-all duration-300 ease">
                     <i class="fas fa-star"></i> ${ach}
                 </span>`
             ).join('')}
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             ${achievementsHtml}
             <div class="team-info absolute bottom-0 left-0 right-0 p-6 bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)] rounded-b-[var(--border-radius-md)] transition-transform duration-300 ease ${isActive ? 'opacity-100' : 'opacity-0'} ">
-                <p class="text-sm fullHD:text-base leading-[1.6] mb-3.5">${data.description}</p>
+                <p class="text-sm fullHD:text-base 2K:text-3xl leading-[1.6] mb-3.5">${data.description}</p>
             </div>
         </div>
     `;
