@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.85">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Comedy Kids — творческое пространство для детей и родителей</title>
     <meta name="description" content="Команда, которая делает из детей уверенных, смешных и ярких лидеров. Comedy Kids — это сцена, импровизация, харизма и настоящие звёзды.  
     Работаем с детьми, ставим выступления, развиваем речь, юмор и уверенность.  
     Родители в восторге. Дети сияют!">
-    <link rel="stylesheet" href='CSS/output.css?v=0.9'>
+    <link rel="stylesheet" href='CSS/index.css?v=0.1'>
+    <link rel="stylesheet" href='CSS/fonts.css?v=0.1'>
     <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="ComedyKids">
     <link rel="manifest" href="img/favicon/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
 </head>
 
-<body class="leading-[var(--line-height)] text-[var(--text)] bg-[var(--bg)] font-[Raleway] overflow-x-hidden">
+<body class="leading-[var(--line-height)] text-text bg-bg font-[Raleway] overflow-x-hidden">
     <!-- Header mobile overlay -->
     <div id="mobile-overlay"
         class="md:hidden fixed inset-0 z-50 opacity-0 pointer-events-none bg-[rgba(0,0,0,0.5)] backdrop-blur-sm transition-opacity duration-300 ease-in-out">
@@ -30,15 +30,16 @@
         class="menu-dropdown fixed top-0 left-0 right-0 bg-transparent z-900 transition-all duration-500 ease animate-fade-in-up-delayed"
         id="header">
         <nav class="nav-menu p-0 2K:p-3.5 relative">
-            <div class="my-0 mx-[1%] lg:mx-[3%] px-5 flex items-center justify-between">
+            <div class="my-0 lg:mx-[3%] px-5 flex items-center justify-between">
                 <!-- Логотип -->
-                <a href="#home" class="cursor-pointer text-decoration-line scale-85 2K:scale-120  hover:scale-95 2K:hover:scale-130">
-                    <div class="flex items-center gap-0 transition-transform duration-300 ">
+                <a href="#home"
+                    class="cursor-pointer text-decoration-line scale-85 2K:scale-120  hover:scale-95 2K:hover:scale-130">
+                    <div class="flex items-center gap-0 transition-transform duration-300">
                         <img src="img/logo/logo.png" alt="Логотип" class="h-[50px]">
-                        <span class="text-[var(--primary)] scale-85 ml-[-3px]"
+                        <span class="text-primary scale-85 ml-[-3px]"
                             style="font-size: 23px; display: flex; flex-direction: column;">
-                            <span
-                                style="margin-bottom: -6px; margin-top: 3px; font-family: 'Dela Gothic One'; color: var(--accent);">COMEDY</span>
+                            <span style="margin-bottom: -6px; margin-top: 3px; font-family: 'Dela Gothic One';"
+                                class="text-accent">COMEDY</span>
                             <span
                                 style="font-size: 38px; margin-top: -15px; font-family: 'Dela Gothic One';">KIDS</span>
                         </span>
@@ -47,75 +48,78 @@
 
                 <!-- Десктопное меню -->
                 <ul class="hidden md:flex list-none gap-[25px] 2K:gap-12">
-                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-medium transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]"
+                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-medium transition-colors duration-[var(--animation-speed)] relative hover:text-primary"
                             href="#home">Главная</a></li>
-                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]"
+                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary"
                             href="#benefits">Почему мы?</a></li>
-                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]"
+                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary"
                             href="#about">О нас</a></li>
-                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]"
+                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary"
                             href="#gallery">Команды</a></li>
-                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]"
+                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary"
                             href="#teachers-preview">Преподаватели</a></li>
-                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]"
+                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary"
                             href="#testimonials">Отзывы</a></li>
-                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]"
+                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary"
                             href="#programs">Программы</a></li>
-                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]"
+                    <li><a class="nav-link no-underline fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary"
                             href="#footer">Контакты</a></li>
                 </ul>
 
                 <!-- Контакт + кнопка (десктоп) -->
                 <div class="hidden md:flex items-center gap-[20px] 2K:gap-9">
                     <a href="tel:+375257772707"
-                        class="flex items-center gap-[8px] text-decoration-line fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-[var(--primary)]">
-                        <i class="fas fa-phone"></i>
+                        class="flex items-center gap-[8px] text-decoration-line fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary">
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"
+                            class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg>
                         <span id="contact-phone">+375 (25) 777-27-07</span>
                     </a>
                     <button
-                        class="bg-[var(--primary)] fullHD:text-lg 2K:text-3xl text-[var(--bg)] font-semibold text-base tracking-[1px] rounded-[var(--border-radius-full)] 2K:rounded-2xl border-none p-[var(--btn-padding)] 2K:px-8 2K:py-5 cursor-pointer hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_var(--primary)] transition-all duration-300 ease-linear"
+                        class="bg-primary fullHD:text-lg 2K:text-3xl text-bg font-semibold text-base tracking-[1px] rounded-[var(--border-radius-full)] 2K:rounded-2xl border-none p-[var(--btn-padding)] 2K:px-8 2K:py-5 cursor-pointer hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_#EF567C] transition-all duration-300 ease-linear"
                         data-action="open-modal">Записаться</button>
                 </div>
 
                 <!-- Гамбургер (2 полоски, мобильный) -->
                 <button class="md:hidden flex flex-col justify-center p-[5px] z-60" id="hamburger">
                     <span
-                        class="hamburger-line w-[30px] h-[3px] bg-[var(--primary)] rounded-[1px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center mb-2.5"></span>
+                        class="hamburger-line w-[30px] h-[3px] bg-primary rounded-[1px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center mb-2.5"></span>
                     <span
-                        class="hamburger-line w-[30px] h-[3px] bg-[var(--primary)] rounded-[1px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center"></span>
+                        class="hamburger-line w-[30px] h-[3px] bg-primary rounded-[1px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center"></span>
                 </button>
             </div>
 
             <!-- Мобильное меню (скрыто по умолчанию) -->
-            <div class="md:hidden fixed top-[79px] pb-5 left-0 w-full bg-[var(--bg)] z-999 transform translate-x-full transition-transform duration-400 ease-in-out overflow-y-auto"
+            <div class="md:hidden fixed top-[79px] pb-5 left-0 w-full bg-bg z-999 transform translate-x-full transition-transform duration-400 ease-in-out overflow-y-auto"
                 id="mobile-menu">
                 <div class="px-5">
                     <ul class="flex flex-col list-none gap-3 mb-4">
-                        <li><a class="block font-medium text-base hover:text-[var(--primary)] transition"
+                        <li><a class="block font-medium text-base hover:text-primary transition"
                                 href="#home">Главная</a></li>
-                        <li><a class="block font-medium text-base hover:text-[var(--primary)] transition"
-                                href="#benefits">Почему мы?</a></li>
-                        <li><a class="block font-medium text-base hover:text-[var(--primary)] transition"
-                                href="#about">О
+                        <li><a class="block font-medium text-base hover:text-primary transition" href="#benefits">Почему
+                                мы?</a></li>
+                        <li><a class="block font-medium text-base hover:text-primary transition" href="#about">О
                                 нас</a></li>
-                        <li><a class="block font-medium text-base hover:text-[var(--primary)] transition"
+                        <li><a class="block font-medium text-base hover:text-primary transition"
                                 href="#gallery">Команды</a></li>
-                        <li><a class="block font-medium text-base hover:text-[var(--primary)] transition"
+                        <li><a class="block font-medium text-base hover:text-primary transition"
                                 href="#teachers-preview">Преподаватели</a></li>
-                        <li><a class="block font-medium text-base hover:text-[var(--primary)] transition"
+                        <li><a class="block font-medium text-base hover:text-primary transition"
                                 href="#testimonials">Отзывы</a></li>
-                        <li><a class="block font-medium text-base hover:text-[var(--primary)] transition"
+                        <li><a class="block font-medium text-base hover:text-primary transition"
                                 href="#programs">Программы</a></li>
-                        <li><a class="block font-medium text-base hover:text-[var(--primary)] transition"
+                        <li><a class="block font-medium text-base hover:text-primary transition"
                                 href="#footer">Контакты</a></li>
                     </ul>
                     <div class="pt-4 border-t border-[var(--color-border)] flex flex-col gap-4">
                         <a href="tel:+375257772707"
-                            class="flex items-center gap-3 font-medium text-[var(--text)] text-base hover:text-[var(--primary)]">
+                            class="flex items-center gap-3 font-medium text-text text-base hover:text-primary">
                             <i class="fas fa-phone text-lg"></i> +375 (25) 777-27-07
                         </a>
                         <button
-                            class="bg-[var(--primary)] text-[var(--bg)] font-semibold text-base tracking-[1px] rounded-[var(--border-radius-full)] border-none p-[var(--btn-padding)] cursor-pointer w-full max-w-[280px]"
+                            class="bg-primary text-bg font-semibold text-base tracking-[1px] rounded-[var(--border-radius-full)] border-none p-[var(--btn-padding)] cursor-pointer w-full max-w-[280px]"
                             data-action="open-modal">Записаться</button>
                     </div>
                 </div>
@@ -129,41 +133,46 @@
             class="absolute top-0 left-0 w-full h-full object-cover z-[-1] pointer-events-none">
         <div
             class="mt-24 mx-[1%] lg:mx-[3%] px-5 w-full grid grid-cols-1 xl:grid-cols-2 gap-5 items-center animate-fade-in-up-delayed">
-            <div class="flex flex-col order-2 xl:order-1 justify-center text-center xl:text-left gap-[1rem] fullHD:gap-8 2K:gap-20">
-                <h1 style="font-family: Dela Gothic One;" class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl tracking-[1px] leading-[1.3] ">
+            <div
+                class="flex flex-col order-2 xl:order-1 justify-center text-center xl:text-left gap-[1rem] fullHD:gap-8 2K:gap-20">
+                <h1
+                    class="font-[Dela_Gothic_One] text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl tracking-[1px] leading-[1.3] ">
                     Место, где дети <br>
-                    становятся <span
-                        class="gradient-text">звёздами</span>,
+                    становятся <span class="gradient-text">звёздами</span>,
                     <br>
-                    а родители — <span class="text-(--primary) italic">гордятся</span>
+                    а родители — <span class="text-primary italic">гордятся</span>
                 </h1>
                 <p class="text-sm xl:text-lg fullHD:text-xl 2K:text-4xl font-semibold mb-5 xl:mb-8">
                     Играем на сцене, прокачиваем речь и уверенность.
                     <br> Без скуки — только энергия и результат.
                 </p>
-                <div class="flex flex-col xl:flex-row gap-5 xl:gap-16 2K:gap-28 mb-5 xl:mb-8 animate-fade-in-up-delayed">
+                <div
+                    class="flex flex-col xl:flex-row gap-5 xl:gap-16 2K:gap-28 mb-5 xl:mb-8 animate-fade-in-up-delayed">
                     <div class="text-center">
-                        <span class="stat-number font-[Dela_Gothic_One] block text-3xl xl:text-4xl fullHD:text-5xl 2K:text-7xl text-(--primary)"
+                        <span
+                            class="stat-number font-[Dela_Gothic_One] block text-3xl xl:text-4xl fullHD:text-5xl 2K:text-7xl text-primary"
                             id="stat-students">500+</span>
                         <span class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl opacity-80">Выпускников</span>
                     </div>
                     <div class="text-center">
-                        <span class="stat-number font-[Dela_Gothic_One] block text-3xl xl:text-4xl fullHD:text-5xl 2K:text-7xl text-(--primary)"
+                        <span
+                            class="stat-number font-[Dela_Gothic_One] block text-3xl xl:text-4xl fullHD:text-5xl 2K:text-7xl text-primary"
                             id="stat-experience">7</span>
                         <span class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl  opacity-80">Лет опыта</span>
                     </div>
                     <div class="text-center">
-                        <span class="stat-number font-[Dela_Gothic_One] block text-3xl xl:text-4xl fullHD:text-5xl 2K:text-7xl text-(--primary)"
+                        <span
+                            class="stat-number font-[Dela_Gothic_One] block text-3xl xl:text-4xl fullHD:text-5xl 2K:text-7xl text-primary"
                             id="stat-events">40+</span>
                         <span class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl  opacity-80">Событий в год</span>
                     </div>
                 </div>
                 <div class="flex gap-4 flex-col xl:flex-row-reverse justify-center lg:justify-end">
                     <button
-                        class="btn bg-(--primary) text-(--bg) text-center hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_var(--primary)]"
+                        class="btn bg-primary text-bg text-center hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_#EF567C]"
                         data-action="open-modal">Записаться на пробное</button>
                     <button onclick="window.location.href='gallery.html'"
-                        class="btn bg-(--secondary30) opacity-70 hover:translate-y-[-3px]">Смотреть
+                        class="btn bg-secondary30 opacity-70 hover:translate-y-[-3px]">Смотреть
                         галерею</button>
                 </div>
             </div>
@@ -178,22 +187,25 @@
     <section class="pb-16 2K:pb-32 min-h-screen flex items-center animate-fade-in-up-delayed" id="benefits">
         <div class="my-0 mx-[1%] w-screen lg:mx-[3%] px-5">
             <div class="text-center mb-8">
-                <h2 class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-5 2K:mb-20 text-(--primary) tracking-[3px]  animate-fade-in-up"
+                <h2 class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-5 2K:mb-20 text-primary tracking-[3px]  animate-fade-in-up"
                     style="font-family: Dela Gothic One;">Почему выбирают нас?</h2>
             </div>
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-5 2K:gap-7">
                 <div
                     class="opacity-100 transition-all duration-500 ease-in-out rounded-(--border-radius-md) 2K:rounded-4xl overflow-hidden shadow-md">
-                    <div class="relative h-[250px] fullHD:h-[350px] 2K:h-[680px] rounded-(--border-radius-md) overflow-hidden">
+                    <div
+                        class="relative h-[250px] fullHD:h-[350px] 2K:h-[680px] rounded-(--border-radius-md) overflow-hidden">
                         <img class="w-full h-full object-cover transition-transform duration-400 ease"
                             src="img/benefits/teamwork.webp" alt="" loading="lazy">
                         <div
-                            class="absolute bottom-0 left-0 right-0 py-3.5 2K:p-10 px-5 flex flex-col justify-start items-start z-10 text-left bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)]">
+                            class="absolute bottom-0 left-0 right-0 py-3.5 2K:p-10 px-4 flex flex-col justify-start items-start z-10 text-left bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)]">
                             <h3 style="font-family: Dela Gothic One;"
-                                class="text-base xl:text-xl fullHD:text-2xl 2K:text-5xl my-2 tracking-[2px] text-(--primary) leading-[1.2]">
+                                class="text-base xl:text-xl fullHD:text-2xl 2K:text-5xl my-2 tracking-[1px] text-primary leading-[1.2]">
                                 КОМАНДНАЯ РАБОТА
                             </h3>
-                            <p class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl max-w-lg fullHD:max-w-xl 2K:max-w-4xl leading-[1.4] opacity-95 m-0">Учим слышать друг
+                            <p
+                                class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl max-w-lg fullHD:max-w-xl 2K:max-w-4xl leading-[1.4] opacity-95 m-0">
+                                Учим слышать друг
                                 друга,
                                 договариваться и добиваться общего результата — как в настоящем проекте.</p>
                         </div>
@@ -201,15 +213,19 @@
                 </div>
                 <div
                     class="opacity-100 transition-all duration-500 ease-in-out rounded-(--border-radius-md) 2K:rounded-4xl overflow-hidden shadow-md ">
-                    <div class="relative w-full h-[250px] fullHD:h-[350px] 2K:h-[680px] rounded-(--border-radius-md) overflow-hidden">
+                    <div
+                        class="relative w-full h-[250px] fullHD:h-[350px] 2K:h-[680px] rounded-(--border-radius-md) overflow-hidden">
                         <img class="w-full h-full object-cover transition-transform duration-400 ease"
                             src="img/benefits/FriendlyAtmosphere.webp" alt="" loading="lazy">
                         <div
-                            class="absolute bottom-0 left-0 right-0 py-3.5 px-5 2K:p-10 flex flex-col justify-start items-start z-10 text-left bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)]">
+                            class="absolute bottom-0 left-0 right-0 py-3.5 px-4 2K:p-10 flex flex-col justify-start items-start z-10 text-left bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)]">
                             <h3 style="font-family: Dela Gothic One;"
-                                class="text-base xl:text-xl fullHD:text-2xl 2K:text-5xl my-2 tracking-[2px] text-(--primary) leading-[1.2]">НОВЫЕ
+                                class="text-base xl:text-xl fullHD:text-2xl 2K:text-5xl my-2 tracking-[1px] text-primary leading-[1.2]">
+                                НОВЫЕ
                                 ДРУЗЬЯ</h3>
-                            <p class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl max-w-lg fullHD:max-w-xl 2K:max-w-4xl leading-[1.4] opacity-95 m-0">Каждый ребёнок
+                            <p
+                                class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl max-w-lg fullHD:max-w-xl 2K:max-w-4xl leading-[1.4] opacity-95 m-0">
+                                Каждый ребёнок
                                 находит близких
                                 по духу, учится общаться и чувствовать себя частью крутой команды.</p>
                         </div>
@@ -217,16 +233,20 @@
                 </div>
                 <div
                     class="opacity-100 transition-all duration-500 ease-in-out rounded-(--border-radius-md) 2K:rounded-4xl overflow-hidden shadow-md ">
-                    <div class="relative w-full h-[250px] fullHD:h-[350px] 2K:h-[680px] rounded-(--border-radius-md) overflow-hidden">
+                    <div
+                        class="relative w-full h-[250px] fullHD:h-[350px] 2K:h-[680px] rounded-(--border-radius-md) overflow-hidden">
                         <img class="w-full h-full object-cover transition-transform duration-400 ease"
                             src="img/benefits/achievements.webp" alt="" loading="lazy">
                         <div
-                            class="absolute bottom-0 left-0 right-0 py-3.5 px-5 2K:p-10 flex flex-col justify-start items-start z-10 text-left bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)]">
+                            class="absolute bottom-0 left-0 right-0 py-3.5 px-4 2K:p-10 flex flex-col justify-start items-start z-10 text-left bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)]">
                             <h3 style="font-family: Dela Gothic One;"
-                                class="text-base xl:text-xl fullHD:text-2xl 2K:text-5xl my-2 tracking-[2px] text-(--primary) leading-[1.2]">ЧАСТЫЕ
+                                class="text-base xl:text-xl fullHD:text-2xl 2K:text-5xl my-2 tracking-[1px] text-primary leading-[1.2]">
+                                ЧАСТЫЕ
                                 ВЫСТУПЛЕНИЯ
                             </h3>
-                            <p class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl max-w-lg fullHD:max-w-xl 2K:max-w-4xl leading-[1.4] opacity-95 m-0">Регулярные выходы на
+                            <p
+                                class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl max-w-lg fullHD:max-w-xl 2K:max-w-4xl leading-[1.4] opacity-95 m-0">
+                                Регулярные выходы на
                                 сцену
                                 делают страх публики просто смешным эпизодом прошлого.</p>
                         </div>
@@ -234,16 +254,19 @@
                 </div>
                 <div
                     class="opacity-100 transition-all duration-500 ease-in-out rounded-(--border-radius-md) 2K:rounded-4xl overflow-hidden shadow-md ">
-                    <div class="relative w-full h-[250px] fullHD:h-[350px] 2K:h-[680px] rounded-(--border-radius-md) overflow-hidden">
+                    <div
+                        class="relative w-full h-[250px] fullHD:h-[350px] 2K:h-[680px] rounded-(--border-radius-md) overflow-hidden">
                         <img class="w-full h-full object-cover transition-transform duration-400 ease"
                             src="img/benefits/experiencedTeachers.webp" alt="" loading="lazy">
                         <div
-                            class="absolute bottom-0 left-0 right-0 py-3.5 px-5 2K:p-10 flex flex-col justify-start items-start z-10 text-left bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)]">
+                            class="absolute bottom-0 left-0 right-0 py-3.5 px-4 2K:p-10 flex flex-col justify-start items-start z-10 text-left bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)]">
                             <h3 style="font-family: Dela Gothic One;"
-                                class="text-base xl:text-xl fullHD:text-2xl 2K:text-5xl my-2 tracking-[2px] text-(--primary) leading-[1.2]">
+                                class="text-base xl:text-xl fullHD:text-2xl 2K:text-5xl my-2 tracking-[1px] text-primary leading-[1.2]">
                                 ПОТЕНЦИАЛ РЕБЁНКА
                             </h3>
-                            <p class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl max-w-lg fullHD:max-w-xl 2K:max-w-4xl leading-[1.4] opacity-95 m-0">Мы умеем видеть
+                            <p
+                                class="text-sm xl:text-base fullHD:text-lg 2K:text-3xl max-w-lg fullHD:max-w-xl 2K:max-w-4xl leading-[1.4] opacity-95 m-0">
+                                Мы умеем видеть
                                 сильные стороны
                                 и превращать их в уверенность, креативность и харизму.</p>
                         </div>
@@ -261,27 +284,30 @@
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 justify-items-center items-center">
                 <div class="flex flex-col justify-center ">
                     <h3
-                        class="font-[Dela_Gothic_One] text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl leading-[1.4] tracking-[2px] text-center mb-7 2K:mb-20 text-(--primary) ">
-                        Смейся. Мечтай. <b
-                            class="gradient-text">Действуй.</b>
+                        class="font-[Dela_Gothic_One] text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl leading-[1.4] tracking-[2px] text-center mb-7 2K:mb-20 text-primary ">
+                        Смейся. Мечтай. <b class="gradient-text">Действуй.</b>
                     </h3>
                     <p class="text-sm xl:text-base fullHD:text-lg 2K:text-4xl mb-2.5 leading-[1.6] opacity-90">
-                        <b class="text-(--primary)">Comedy Kids</b> — творческое сообщество и большая семья, где дети
+                        <b class="text-primary">Comedy Kids</b> — творческое сообщество и большая семья, где дети
                         учатся не просто шутить, а верить в себя.
                     </p>
-                    <p class="text-sm xl:text-base fullHD:text-lg 2K:text-4xl mb-2.5 leading-[1.6] opacity-90"><b class="text-(--primary)">Смех</b>
+                    <p class="text-sm xl:text-base fullHD:text-lg 2K:text-4xl mb-2.5 leading-[1.6] opacity-90"><b
+                            class="text-primary">Смех</b>
                         — наш общий
-                        язык, а <b class="text-(--primary)">сцена</b> — место, где каждый свободен быть собой.</p>
-                    <p class="text-sm xl:text-base fullHD:text-lg 2K:text-4xl mb-2.5 leading-[1.6] opacity-90">Мы объединяем <b
-                            class="text-(--primary)">юмор</b>, <b class="text-(--primary)">творчество</b> и командный <b
-                            class="text-(--primary)">дух</b>, превращая занятия в маленькие праздники.</p>
+                        язык, а <b class="text-primary">сцена</b> — место, где каждый свободен быть собой.</p>
+                    <p class="text-sm xl:text-base fullHD:text-lg 2K:text-4xl mb-2.5 leading-[1.6] opacity-90">Мы
+                        объединяем <b class="text-primary">юмор</b>, <b class="text-primary">творчество</b> и
+                        командный <b class="text-primary">дух</b>, превращая занятия в маленькие праздники.</p>
                     <p class="text-sm xl:text-base fullHD:text-lg 2K:text-4xl mb-2.5 leading-[1.6] opacity-90">
-                        Ошибки мы превращаем в <b class="text-(--primary)">топливо для роста</b> топливо для роста и
+                        Ошибки мы превращаем в <b class="text-primary">топливо для роста</b> топливо для роста и
                         уверенности.
                     </p>
-                    <p class="text-(--primary) text-xs xl:text-base fullHD:text-lg 2K:text-4xl mb-2.5 leading-[1.6] opacity-90"><i>«Присоединяйся к
+                    <p
+                        class="text-primary text-xs xl:text-base fullHD:text-lg 2K:text-4xl mb-2.5 leading-[1.6] opacity-90">
+                        <i>«Присоединяйся к
                             нашей семье
-                            — начни с первой бесплатной тренировки»</i> </p>
+                            — начни с первой бесплатной тренировки»</i>
+                    </p>
 
                 </div>
                 <div class="xl:w-2/3">
@@ -293,40 +319,43 @@
     </section>
 
     <!-- Our Teams Section -->
-    <section class="relative pb-16 2K:pb-32 flex items-center  justify-center animate-fade-in-up-delayed" id="gallery">
+    <section class="relative pb-16 2K:pb-32 xl:flex xl:items-center xl:justify-center animate-fade-in-up-delayed"
+        id="gallery">
         <img src="img/patern/team.svg"
             class="absolute top-0 left-0 w-full h-full object-cover z-[-1] pointer-events-none block" alt="Паттерн"
             loading="lazy">
         <div class="my-0 mx-[1%] lg:mx-[3%] px-5">
             <div class="text-center mb-8">
-                <h2 class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-5 2K:mb-20 text-(--primary) tracking-[3px] animate-fade-in-up"
+                <h2 class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-5 2K:mb-20 text-primary tracking-[3px] animate-fade-in-up"
                     style="font-family: Dela Gothic One;">Команды COMEDY KIDS </h2>
             </div>
-            <div class="w-full h-[530px] fullHD:h-[580px] 2K:h-[930px] flex justify-center items-center overflow-visible mt-10">
+            <div
+                class="w-full h-[530px] fullHD:h-[580px] 2K:h-[930px] flex justify-center items-center overflow-visible mt-10">
                 <div class="relative w-full h-full flex justify-center items-center overflow-visible"
                     id="team-slides-wrapper">
                     <div class="w-full h-full" id="teamSlidesContainer"></div>
-                    <div class="hidden absolute right-[calc(50%+200px+30px)] 2K:right-[calc(50%+300px+50px)] bottom-12  w-12 2K:w-20 h-12 2K:h-20 rounded-[50%] bg-(--secondary50) hover:bg-(--primary) hover:scale-110 lg:flex justify-center items-center cursor-pointer transition-all duration-300 z-[2]"
+                    <div class="hidden absolute right-[calc(50%+200px+30px)] 2K:right-[calc(50%+300px+50px)] bottom-9 w-12 2K:w-20 h-12 2K:h-20 rounded-[50%] bg-secondary50 hover:bg-primary hover:scale-110 lg:flex justify-center items-center cursor-pointer transition-all duration-300 z-[2]"
                         id="teamNavPrev">
-                        <svg class="w-5 2K:w-10 h-5 2K:h-10 fill-(--text) hover:scale-110 hover:fill-(--bg)"
+                        <svg class="w-5 2K:w-10 h-5 2K:h-10 fill-text hover:scale-110 hover:fill-bg"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                         </svg>
                     </div>
-                    <div class="hidden absolute left-[calc(50%+200px+30px)] 2K:left-[calc(50%+300px+50px)] bottom-12  w-12 2K:w-20 h-12 2K:h-20 rounded-[50%] bg-(--secondary50) hover:bg-(--primary) hover:scale-110 lg:flex justify-center items-center cursor-pointer transition-all duration-300 z-[2]"
+                    <div class="hidden absolute left-[calc(50%+200px+30px)] 2K:left-[calc(50%+300px+50px)] bottom-9 w-12 2K:w-20 h-12 2K:h-20 rounded-[50%] bg-secondary50 hover:bg-primary hover:scale-110 lg:flex justify-center items-center cursor-pointer transition-all duration-300 z-[2]"
                         id="teamNavNext">
-                        <svg class="w-5 2K:w-10 h-5 2K:h-10 fill-(--text) hover:scale-110 hover:fill-(--bg)"
+                        <svg class="w-5 2K:w-10 h-5 2K:h-10 fill-text hover:scale-110 hover:fill-bg"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
                         </svg>
                     </div>
-                    <div class="absolute top-[500px] fullHD:top-[550px] 2K:top-[900px] flex gap-2 left-1/2 -translate-x-1/2 z-[5]" id="teamDotsContainer">
+                    <div class="absolute top-[500px] fullHD:top-[550px] 2K:top-[900px] flex gap-2 left-1/2 -translate-x-1/2 z-[5]"
+                        id="teamDotsContainer">
                     </div>
                 </div>
             </div>
             <div class="w-full flex justify-center">
                 <a href="gallery.html"
-                    class="btn bg-(--primary) text-(--bg) text-center hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_var(--primary)] hover:animate-fade-in-up-delayed">
+                    class="btn bg-primary text-bg text-center hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_#EF567C] hover:animate-fade-in-up-delayed">
                     Все команды
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -335,17 +364,20 @@
     </section>
 
     <!-- Teachers Preview -->
-    <section class="pb-16 2K:pb-32 flex items-center justify-center animate-fade-in-up-delayed" id="teachers-preview">
-        <div class="my-0 mx-[1%] lg:mx-[3%] px-5">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-5 2K:mb-20 text-(--primary) tracking-[3px] font-[Dela_Gothic_One] animate-fade-in-up">Нашa
+    <section class="pb-16 2K:pb-32 xl:flex xl:items-center xl:justify-center animate-fade-in-up-delayed"
+        id="teachers-preview">
+        <div class="my-0 lg:mx-[3%] px-5">
+            <div class="text-center w-screen mb-8">
+                <h2
+                    class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-5 2K:mb-20 text-primary tracking-[3px] font-[Dela_Gothic_One] animate-fade-in-up">
+                    Нашa
                     команда </h2>
             </div>
-            <div class="flex justify-evenly gap-10 lg:gap-[calc((var(--max-width)-100%)/2)] flex-wrap mb-10"
+            <div class="flex xl:justify-evenly lg:gap-[calc((var(--max-width)-100%)/2)] flex-wrap mb-10"
                 id="teachers-preview-grid"></div>
             <div class="w-full 2K:mt-20 flex justify-center">
                 <button
-                    class="btn bg-(--primary) text-(--bg) text-center hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_var(--primary)] hover:animate-fade-in-up-delayed"
+                    class="btn bg-primary text-bg text-center hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_#EF567C] hover:animate-fade-in-up-delayed"
                     data-action="open-modal">Получить консультацию</button>
             </div>
         </div>
@@ -355,7 +387,8 @@
     <section class="pb-16 2K:pb-32 flex items-center flex-col animate-fade-in-up-delayed" id="testimonials">
         <div class="my-0 mx-[1%] lg:mx-[3%] px-5">
             <div class="text-center mb-8">
-                <h2 class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-4 2K:mb-20 text-(--primary) tracking-[3px] font-[Dela_Gothic_One] animate-fade-in-up">
+                <h2
+                    class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-4 2K:mb-20 text-primary tracking-[3px] font-[Dela_Gothic_One] animate-fade-in-up">
                     Отзывы родителей</h2>
             </div>
             <div class="mx-auto overflow-hidden relative" id="testimonials-container">
@@ -365,18 +398,18 @@
         <div class="flex justify-center gap-2 2K:gap-4" id="slider-indicators"></div>
         <div class="flex justify-center gap-3.5 2K:gap-7 mt-4 2K:mt-8">
             <button
-                class="w-12 2K:w-20 h-12 2K:h-20 rounded-[50%] bg-(--primary) cursor-pointer flex items-center justify-center text-xl transition-all duration-300  hover:scale-110"
+                class="w-12 2K:w-20 h-12 2K:h-20 rounded-[50%] bg-primary cursor-pointer flex items-center justify-center text-xl transition-all duration-300  hover:scale-110"
                 id="prev-btn">
-                <svg class="w-5 2K:w-10 h-5 2K:h-10 fill-(--bg) transition-all duration-300 hover:scale-110" id="svg-prev-btn"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <svg class="w-5 2K:w-10 h-5 2K:h-10 fill-bg transition-all duration-300 hover:scale-110"
+                    id="svg-prev-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                 </svg>
             </button>
             <button
-                class="w-12 2K:w-20 h-12 2K:h-20 rounded-[50%]  bg-(--primary) cursor-pointer flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
+                class="w-12 2K:w-20 h-12 2K:h-20 rounded-[50%]  bg-primary cursor-pointer flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
                 id="next-btn">
-                <svg class="w-5 2K:w-10 h-5 2K:h-10 fill-(--bg) transition-all duration-300 hover:scale-110" id="svg-next-btn"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <svg class="w-5 2K:w-10 h-5 2K:h-10 fill-bg transition-all duration-300 hover:scale-110"
+                    id="svg-next-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
                 </svg>
             </button>
@@ -388,7 +421,8 @@
     <section class="pb-16 2K:pb-32 flex items-center justify-center animate-fade-in-up-delayed" id="programs">
         <div class="my-0 mx-[1%] lg:mx-[3%] px-5">
             <div class="text-center mb-8">
-                <h2 class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-5 2K:mb-20 text-(--primary) tracking-[3px] font-[Dela_Gothic_One] animate-fade-in-up">
+                <h2
+                    class="text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl mb-5 2K:mb-20 text-primary tracking-[3px] font-[Dela_Gothic_One] animate-fade-in-up">
                     Старт в мир юмора и уверенности</h2>
             </div>
             <div class="mt-12 w-full flex flex-col xl:flex-row gap-6" id="programs-grid"></div>
@@ -403,19 +437,21 @@
         <div class="my-0 mx-[1%] lg:mx-[3%] px-5">
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-10 items-center animate-fade-in-up-delayed">
                 <div class="order-2 xl:order-1 flex flex-col justify-center gap-6 xl:gap-12 2K:gap-24">
-                    <h1 class="font-[Dela_Gothic_One] text-center xl:text-left text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl tracking-[2px] leading-[1.3]"><i>Хватит
+                    <h1
+                        class="font-[Dela_Gothic_One] text-center xl:text-left text-2xl xl:text-4xl fullHD:text-5xl 2K:text-7xl tracking-[2px] leading-[1.3]">
+                        <i>Хватит
                             смотреть</i>
-                        <br> со стороны — пора <br class="hidden xl:block"> <span
-                            class="gradient-text">раскрыть
+                        <br> со стороны — пора <br class="hidden xl:block"> <span class="gradient-text">раскрыть
                             талант</span>
                     </h1>
-                    <p class="text-base xl:text-lg fullHD:text-xl 2K:text-4xl text-center xl:text-left xl:max-w-4/5 font-medium opacity-95 ">
+                    <p
+                        class="text-base xl:text-lg fullHD:text-xl 2K:text-4xl text-center xl:text-left xl:max-w-4/5 font-medium opacity-95 ">
                         Comedy Kids — это не кружок. Мы ждём тех, кто хочет говорить громко, шутить смело и чувствовать
                         аплодисменты.
                     </p>
                     <div class="flex justify-center xl:justify-start">
                         <button
-                            class="btn bg-(--primary) text-(--bg) text-center hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_var(--primary)] hover:animate-fade-in-up-delayed"
+                            class="btn bg-primary text-bg text-center hover:translate-y-[-3px] hover:shadow-[0_20px_80px_-10px_#EF567C] hover:animate-fade-in-up-delayed"
                             data-action="open-modal">Бесплатное занятие</button>
                     </div>
                 </div>
@@ -432,60 +468,80 @@
         <div class="my-0 mx-[1%] lg:mx-[3%] px-5">
             <div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-10 mb-5">
                 <div>
-                    <h3 class="font-[Dela_Gothic_One] tracking-[1px] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl mb-5 2K:mb-16 text-(--primary)">Информация</h3>
+                    <h3
+                        class="font-[Dela_Gothic_One] tracking-[1px] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl mb-5 2K:mb-16 text-primary">
+                        Информация</h3>
                     <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90">Пн-Пт: 10:00-20:00</p>
                     <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90">Сб-Вс: 11:00-19:00</p>
-                    <a class="tetx-sm fullHD:text-lg 2K:text-3xl opacity-50 hover:opacity-100 transition-all duration-300 ease-in border-b-1 border-solid hover:border-(--primary) hover:text-(--primary)"
+                    <a class="tetx-sm fullHD:text-lg 2K:text-3xl opacity-50 hover:opacity-100 transition-all duration-300 ease-in border-b-1 border-solid hover:border-primary hover:text-primary"
                         href="/cookie.html">Политика использования cookie</a>
                     <br>
-                    <a class="tetx-sm fullHD:text-lg 2K:text-3xl opacity-50 hover:opacity-100 transition-all duration-300 ease-in border-b-1 border-solid hover:border-(--primary) hover:text-(--primary)"
+                    <a class="tetx-sm fullHD:text-lg 2K:text-3xl opacity-50 hover:opacity-100 transition-all duration-300 ease-in border-b-1 border-solid hover:border-primary hover:text-primary"
                         href="/privacy-personal.html">Политика обработки персональных данных</a>
                     <br>
-                    <a class="tetx-sm fullHD:text-lg 2K:text-3xl opacity-50 hover:opacity-100 transition-all duration-300 ease-in border-b-1 border-solid hover:border-(--primary) hover:text-(--primary)"
+                    <a class="tetx-sm fullHD:text-lg 2K:text-3xl opacity-50 hover:opacity-100 transition-all duration-300 ease-in border-b-1 border-solid hover:border-primary hover:text-primary"
                         href="/payment.html">Как оплатить занятия</a>
                 </div>
                 <div>
-                    <h3 class="font-[Dela_Gothic_One] tracking-[1px] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl mb-5 2K:mb-16 text-(--primary)">Контакты</h3>
-                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"><i class="fas fa-map-marker-alt"></i><span
-                            class="mb-2.5 opacity-90" id="contact-address">г. Минск, ул. Воронянского, д. </span></p>
+                    <h3
+                        class="font-[Dela_Gothic_One] tracking-[1px] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl mb-5 2K:mb-16 text-primary">
+                        Контакты</h3>
+                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"><i
+                            class="fas fa-map-marker-alt"></i><span class="mb-2.5 opacity-90" id="contact-address">г.
+                            Минск, ул. Воронянского, д. </span></p>
                     <a href="tel:+375257772707">
-                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"> <i class="fas fa-phone"></i><span  id="contact-phone">+375
+                        <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"> <i
+                                class="fas fa-phone"></i><span id="contact-phone">+375
                                 (25)
                                 777-27-07</span></p>
                     </a>
-                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"><i class="fas fa-envelope"></i> <span 
-                            id="contact-email">comedykids@cubeup.by</span></p>
+                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"><i
+                            class="fas fa-envelope"></i> <span id="contact-email">comedykids@cubeup.by</span></p>
                     <div class="flex gap-4 mt-5">
 
                         <a href="http://t.me/C0medyKIDS" target="_blank"
                             class="w-10 fullHD:w-12 2K:w-20 h-10 fullHD:h-12 2K:h-20 fullHD:text-xl 2K:text-4xl bg-(--secondary70) rounded-[50%] flex items-center justify-center transition-transform duration-300 ease-linear hover:translate-y-[-3px]">
-                            <i class="fab fa-telegram"></i>
+                            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"
+                                class="bi bi-telegram" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z" />
+                            </svg>
                         </a>
                         <a href="https://www.instagram.com/comedykids.by/" target="_blank"
                             class="w-10 fullHD:w-12 2K:w-20 h-10 fullHD:h-12 2K:h-20 fullHD:text-xl 2K:text-4xl bg-(--secondary70) rounded-[50%] flex items-center justify-center transition-transform duration-300 ease-linear hover:translate-y-[-3px]">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="white"
+                                    d="M7.46471 1.0662C8.63794 1.01266 9.01258 1 12 1C14.9874 1 15.362 1.01266 16.5352 1.0662C17.7061 1.1196 18.5057 1.30556 19.2054 1.57751C19.9288 1.85858 20.5422 2.2347 21.1537 2.84623C21.7653 3.45779 22.1414 4.07123 22.4225 4.79454C22.6944 5.49426 22.8804 6.29385 22.9338 7.46471C22.9873 8.63798 23 9.01258 23 12C23 14.9874 22.9873 15.362 22.9338 16.5353C22.8804 17.7061 22.6944 18.5057 22.4225 19.2054C22.1414 19.9288 21.7653 20.5422 21.1537 21.1537C20.5422 21.7653 19.9288 22.1414 19.2054 22.4225C18.5057 22.6944 17.7061 22.8804 16.5352 22.9338C15.362 22.9873 14.9874 23 12 23C9.01258 23 8.63794 22.9873 7.46471 22.9338C6.29385 22.8804 5.49426 22.6944 4.79454 22.4225C4.07123 22.1414 3.45775 21.7653 2.84623 21.1537C2.23466 20.5422 1.85858 19.9287 1.57746 19.2054C1.30552 18.5057 1.1196 17.7061 1.06615 16.5353C1.01262 15.362 1 14.9874 1 12C1 9.01254 1.01262 8.63798 1.06615 7.46471C1.1196 6.29385 1.30552 5.49426 1.57746 4.79454C1.85858 4.07123 2.23466 3.45779 2.84623 2.84623C3.45775 2.2347 4.07123 1.85858 4.79454 1.57751C5.49426 1.30556 6.29385 1.1196 7.46471 1.0662ZM16.4449 3.04608C15.285 2.99316 14.9371 2.98198 12 2.98198C9.06284 2.98198 8.71496 2.99316 7.55501 3.04608C6.48257 3.09503 5.90008 3.27423 5.51247 3.42487C4.99906 3.62442 4.63259 3.86278 4.24768 4.24773C3.86278 4.63263 3.62437 4.99906 3.42482 5.51252C3.27423 5.90013 3.09503 6.48257 3.04608 7.55506C2.99316 8.71496 2.98198 9.06288 2.98198 12C2.98198 14.9371 2.99316 15.285 3.04608 16.4449C3.09503 17.5174 3.27423 18.0999 3.42482 18.4875C3.62437 19.0009 3.86278 19.3674 4.24768 19.7523C4.63259 20.1372 4.99906 20.3756 5.51247 20.5751C5.90008 20.7257 6.48257 20.905 7.55506 20.9539C8.71479 21.0068 9.06262 21.018 12 21.018C14.9373 21.018 15.2852 21.0068 16.4449 20.9539C17.5174 20.905 18.0998 20.7257 18.4874 20.5751C19.0009 20.3756 19.3674 20.1372 19.7523 19.7523C20.1372 19.3674 20.3755 19.0009 20.5751 18.4875C20.7257 18.0999 20.9049 17.5174 20.9539 16.4449C21.0068 15.285 21.018 14.9371 21.018 12C21.018 9.06288 21.0068 8.71496 20.9539 7.55506C20.9049 6.48257 20.7257 5.90013 20.5751 5.51252C20.3755 4.99906 20.1372 4.63263 19.7523 4.24768C19.3674 3.86278 19.0009 3.62442 18.4874 3.42487C18.0998 3.27423 17.5174 3.09503 16.4449 3.04608ZM8.33329 12C8.33329 14.025 9.97495 15.6667 12 15.6667C14.025 15.6667 15.6667 14.025 15.6667 12C15.6667 9.97495 14.025 8.33333 12 8.33333C9.97495 8.33333 8.33329 9.97495 8.33329 12ZM6.35131 12C6.35131 8.88032 8.88032 6.35136 12 6.35136C15.1196 6.35136 17.6486 8.88032 17.6486 12C17.6486 15.1197 15.1196 17.6486 12 17.6486C8.88032 17.6486 6.35131 15.1197 6.35131 12ZM17.8718 7.44816C18.6008 7.44816 19.1918 6.8572 19.1918 6.12818C19.1918 5.39915 18.6008 4.8082 17.8718 4.8082C17.1428 4.8082 16.5518 5.39915 16.5518 6.12818C16.5518 6.8572 17.1428 7.44816 17.8718 7.44816Z" />
+                            </svg> </a>
                         <a href="https://connect.viber.com/business/0abd88e4-8459-11f0-9a1d-aefdb123a799"
                             target="_blank"
                             class="w-10 fullHD:w-12 2K:w-20 h-10 fullHD:h-12 2K:h-20 fullHD:text-xl 2K:text-4xl bg-(--secondary70) rounded-[50%] flex items-center justify-center transition-transform duration-300 ease-linear hover:translate-y-[-3px]">
-                            <i class="fab fa-viber"></i>
+                            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="#ffffff"
+                                    d="M444.3 49.9c-12.7-11.7-64.1-49-178.7-49.5 0 0-135.1-8.1-200.9 52.3-36.6 36.6-49.5 90.3-50.9 156.8s-3.1 191.1 117 224.9l.1 0-.1 51.6s-.8 20.9 13 25.1c16.6 5.2 26.4-10.7 42.3-27.8 8.7-9.4 20.7-23.2 29.8-33.7 82.2 6.9 145.3-8.9 152.5-11.2 16.6-5.4 110.5-17.4 125.7-142 15.8-128.6-7.6-209.8-49.8-246.5zM458.2 287c-12.9 104-89 110.6-103 115.1-6 1.9-61.5 15.7-131.2 11.2 0 0-52 62.7-68.2 79-5.3 5.3-11.1 4.8-11-5.7 0-6.9 .4-85.7 .4-85.7l0 0C43.4 372.7 49.4 266.6 50.5 211.1s11.6-101 42.6-131.6c55.7-50.5 170.4-43 170.4-43 96.9 .4 143.3 29.6 154.1 39.4 35.7 30.6 53.9 103.8 40.6 211.1zm-139-80.8c.4 8.6-12.5 9.2-12.9 .6-1.1-22-11.4-32.7-32.6-33.9-8.6-.5-7.8-13.4 .7-12.9 27.9 1.5 43.4 17.5 44.8 46.2zm20.3 11.3c1-42.4-25.5-75.6-75.8-79.3-8.5-.6-7.6-13.5 .9-12.9 58 4.2 88.9 44.1 87.8 92.5-.1 8.6-13.1 8.2-12.9-.3zm47 13.4c.1 8.6-12.9 8.7-12.9 .1-.6-81.5-54.9-125.9-120.8-126.4-8.5-.1-8.5-12.9 0-12.9 73.7 .5 133 51.4 133.7 139.2zM375.2 329l0 .2c-10.8 19-31 40-51.8 33.3l-.2-.3c-21.1-5.9-70.8-31.5-102.2-56.5-16.2-12.8-31-27.9-42.4-42.4-10.3-12.9-20.7-28.2-30.8-46.6-21.3-38.5-26-55.7-26-55.7-6.7-20.8 14.2-41 33.3-51.8l.2 0c9.2-4.8 18-3.2 23.9 3.9 0 0 12.4 14.8 17.7 22.1 5 6.8 11.7 17.7 15.2 23.8 6.1 10.9 2.3 22-3.7 26.6l-12 9.6c-6.1 4.9-5.3 14-5.3 14s17.8 67.3 84.3 84.3c0 0 9.1 .8 14-5.3l9.6-12c4.6-6 15.7-9.8 26.6-3.7 14.7 8.3 33.4 21.2 45.8 32.9 7 5.7 8.6 14.4 3.8 23.6z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3 class="font-[Dela_Gothic_One] tracking-[1px] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl mb-5 2K:mb-16 text-(--primary)">Реквизиты</h3>
+                    <h3
+                        class="font-[Dela_Gothic_One] tracking-[1px] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl mb-5 2K:mb-16 text-primary">
+                        Реквизиты</h3>
                     <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90">ООО "КУБ КОНСАЛТИНГ"</p>
-                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90">Адрес: Беларусь, г. Минск, ул. Братская, дом 11, оф. 380, пом.,
+                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90">Адрес: Беларусь, г. Минск,
+                        ул. Братская, дом 11, оф. 380, пом.,
                         220065
                     </p>
                     <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90">УНП: 193860703</p>
-                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90">Текущий (расчетный): BY11ALFA30122G81150010270000 в BYN
+                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90">Текущий (расчетный):
+                        BY11ALFA30122G81150010270000 в BYN
                         <br>в ЗАО 'Альфа-Банк', БИК: ALFABY2X
                     </p>
                 </div>
             </div>
             <div class="text-center py-5 border-t-1 border-solid border-(--color-border) opacity-90">
-                <h3 class="mb-13 lg:mb-0 text-(--primary) text-base fullHD:text-lg 2K:text-3xl tracking-[1px]">&copy; ООО "КУБ КОНСАЛТИНГ" Прорыв там, где
+                <h3 class="mb-13 lg:mb-0 text-primary text-base fullHD:text-lg 2K:text-3xl tracking-[1px]">&copy;
+                    ООО "КУБ КОНСАЛТИНГ" Прорыв там, где
                     другие
                     видят стены.</h3>
             </div>
@@ -499,34 +555,39 @@
             class="absolute top-0 left-0 w-full h-full cursor-pointer bg-[rgba(0,0,0,0.5)] backdrop-blur-xs backdrop-filter transition-all duration-300 ease-linear">
         </div>
         <div
-            class="modal-content bg-(--bg) p-8 rounded-(--border-radius-md) max-w-[420px] fullHD:max-w-[500px] 2K:max-w-[800px] relative transition-all duration-300 ease-linear transform scale-95">
+            class="modal-content bg-bg p-8 rounded-(--border-radius-md) max-w-[420px] fullHD:max-w-[500px] 2K:max-w-[800px] relative transition-all duration-300 ease-linear transform scale-95">
             <button
-                class="modal-close absolute top-3.5 right-5 border-none bg-none text-3xl 2K:text-5xl cursor-pointer transition-colors duration-300 hover:text-(--primary)"
+                class="modal-close absolute top-3.5 right-5 border-none bg-none text-3xl 2K:text-5xl cursor-pointer transition-colors duration-300 hover:text-primary"
                 aria-label="Закрыть">&times;</button>
-            <h2 class="font-[Dela_Gothic_One] text-(--primary) text-center mb-5 2K:mb-10 text-3xl  fullHD:text-4xl 2K:text-5xl tracking-[2px]">Заполните форму
+            <h2
+                class="font-[Dela_Gothic_One] text-primary text-center mb-5 2K:mb-10 text-3xl  fullHD:text-4xl 2K:text-5xl tracking-[2px]">
+                Заполните форму
             </h2>
 
-            <form class="signup-form flex flex-col gap-5" novalidate>
+            <form class="signup-form flex flex-col 2K:gap-5" novalidate>
                 <div class="flex flex-col 2K:gap-2">
-                    <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="parent-name">Как Вас зовут?</label>
+                    <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="parent-name">Как Вас
+                        зовут?</label>
                     <input
-                        class="form-input p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-(--text) text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-(--accent) focus:shadow-[0_15px_50px_-20px_var(--primary)] focus:outline-0 focus:outline-solid"
+                        class="form-input p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-text text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-#EF567C focus:shadow-[0_15px_50px_-20px_#EF567C] focus:outline-0 focus:outline-solid"
                         type="text" id="parent-name" name="parentName" placeholder="Введите ваше имя" required>
                     <div class="error-message text-sm text-[#e74c3c] min-h-4" id="parent-name-error"></div>
                 </div>
 
                 <div class="flex flex-col 2K:gap-2">
-                    <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="child-name">Как зовут Вашего ребёнка?</label>
+                    <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="child-name">Как зовут Вашего
+                        ребёнка?</label>
                     <input
-                        class="form-input p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-(--text) text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-(--accent) focus:shadow-[0_15px_50px_-20px_var(--primary)] focus:outline-0 focus:outline-solid"
+                        class="form-input p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-text text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-#EF567C focus:shadow-[0_15px_50px_-20px_#EF567C] focus:outline-0 focus:outline-solid"
                         type="text" id="child-name" name="childName" placeholder="Введите имя ребёнка" required>
                     <div class="error-message text-sm text-[#e74c3c] min-h-4 " id="child-name-error"></div>
                 </div>
 
                 <div class="flex flex-col 2K:gap-2">
-                    <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="child-birth-date">Дата рождения ребёнка (от 3 лет)</label>
+                    <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="child-birth-date">Дата рождения
+                        ребёнка (от 3 лет)</label>
                     <input
-                        class="form-input p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-(--text) text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-(--accent) focus:shadow-[0_15px_50px_-20px_var(--primary)] focus:outline-0 focus:outline-solid"
+                        class="form-input min-w-full p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-text text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-#EF567C focus:shadow-[0_15px_50px_-20px_#EF567C] focus:outline-0 focus:outline-solid"
                         type="text" id="child-birth-date" name="childBirthDate" placeholder="Выберите дату" required>
                     <div class="error-message text-sm text-[#e74c3c] min-h-4 " id="child-birth-date-error"></div>
                 </div>
@@ -534,16 +595,19 @@
                 <div class="flex flex-col 2K:gap-2">
                     <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="phone">Телефон</label>
                     <input
-                        class="form-input p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-(--text) text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-(--accent) focus:shadow-[0_15px_50px_-20px_var(--primary)] focus:outline-0 focus:outline-solid"
-                        type="tel" id="phone" name="phone" placeholder="+375 (XX) XXX-XX-XX" required>
+                        class="form-input p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-text text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-#EF567C focus:shadow-[0_15px_50px_-20px_#EF567C] focus:outline-0 focus:outline-solid"
+                        type="tel" id="phone" name="phone" placeholder="+375 (XX) XXX-XX-XX" autocomplete="tel"
+                        required>
                     <div class="error-message text-sm text-[#e74c3c] min-h-4" id="phone-error"></div>
                 </div>
 
                 <div class="flex flex-col 2K:gap-2">
-                    <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="preferred-contact">Когда лучше связаться?</label>
+                    <label class="font-medium text-sm fullHD:text-base 2K:text-2xl" for="preferred-contact">Когда лучше
+                        связаться?</label>
                     <input
-                        class="form-input p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-(--text) text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-(--accent) focus:shadow-[0_15px_50px_-20px_var(--primary)] focus:outline-0 focus:outline-solid"
-                        type="text" id="preferred-contact" name="preferredContact" placeholder="Выберите дату и время">
+                        class="form-input min-w-full p-3.5 2K:p-6 border-2 border-solid rounded-(--border-radius-sm) border-text text-base fullHD:text-lg 2K:text-3xl transition-all duration-300 ease-linear focus:border-#EF567C focus:shadow-[0_15px_50px_-20px_#EF567C] focus:outline-0 focus:outline-solid"
+                        type="text" id="preferred-contact" name="preferredContact" placeholder="Выберите дату и время"
+                        autocomplete="bday-year">
                     <div class="error-message text-sm text-[#e74c3c] min-h-4" id="preferred-contact-error"></div>
                 </div>
 
@@ -552,8 +616,8 @@
                         <input type="checkbox" class="hidden" name="consent" value="1" onchange="toggleCheckbox(this)"
                             id="consent" required>
                         <div
-                            class="checkbox-container flex-shrink-0 w-5 2K:w-8 h-5 2K:h-8 border-2 border-solid border-(--text) rounded-sm bg-transparent flex items-center justify-center transition-colors duration-200">
-                            <svg class="checkmark w-3 fullHD:w-5 h-3 fullHD:h-5 text-(--bg) opacity-0 transition-opacity duration-200"
+                            class="checkbox-container flex-shrink-0 w-5 2K:w-8 h-5 2K:h-8 border-2 border-solid border-text rounded-sm bg-transparent flex items-center justify-center transition-colors duration-200">
+                            <svg class="checkmark w-3 fullHD:w-5 h-3 fullHD:h-5 text-bg opacity-0 transition-opacity duration-200"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
                                     d="M5 13l4 4L19 7"></path>
@@ -561,7 +625,7 @@
                         </div>
                         <span class="block text-sm fullHD:text-base 2K:text-2xl">
                             Я даю согласие на
-                            <a class="text-(--primary) decoration-0 hover:underline hover:text-(--accent) font-semibold transition-colors duration-300 ease-linear"
+                            <a class="text-primary decoration-0 hover:underline hover:text-#EF567C font-semibold transition-colors duration-300 ease-linear"
                                 href="/privacy-personal.html" target="_blank">
                                 обработку персональных данных
                             </a>
@@ -575,7 +639,7 @@
                 <input type="hidden" name="source" id="form-source" value="">
 
                 <button type="submit"
-                    class="btn-modal btn bg-(--primary) text-(--bg) text-center hover:translate-y-[-1px] hover:shadow-[0_10px_40px_-10px_var(--primary)] transition-all duration-300">
+                    class="btn-modal btn bg-primary text-bg text-center hover:translate-y-[-1px] hover:shadow-[0_10px_40px_-10px_#EF567C] transition-all duration-300">
                     Отправить
                 </button>
             </form>
@@ -589,16 +653,19 @@
             class="absolute top-0 left-0 w-full h-full cursor-pointer bg-[rgba(0,0,0,0.5)] backdrop-blur-xs backdrop-filter transition-all duration-300 ease-linear">
         </div>
         <div
-            class="success-content  bg-(--bg) p-8 rounded-(--border-radius-md) max-w-[420px] fullHD:max-w-[500px] 2K:max-w-[800px]  relative transition-all duration-300 ease-linear transform scale-95 flex flex-col justify-center text-center items-center">
+            class="success-content  bg-bg p-8 rounded-(--border-radius-md) max-w-[420px] fullHD:max-w-[500px] 2K:max-w-[800px]  relative transition-all duration-300 ease-linear transform scale-95 flex flex-col justify-center text-center items-center">
             <button
-                class="modal-close absolute top-3.5 right-5 border-none bg-none text-3xl 2K:text-5xl cursor-pointer transition-colors duration-300 hover:text-(--primary)"
+                class="modal-close absolute top-3.5 right-5 border-none bg-none text-3xl 2K:text-5xl cursor-pointer transition-colors duration-300 hover:text-primary"
                 onclick="closeSuccessModal()">&times;</button>
             <div class="text-7xl text-[#27ae60] mb-5">✓</div>
-            <h2 class="font-[Dela_Gothic_One] text-(--primary) text-center mb-5 2K:mb-10 text-2xl fullHD:text-3xl 2K:text-5xl tracking-[2px]">Спасибо за
+            <h2
+                class="font-[Dela_Gothic_One] text-primary text-center mb-5 2K:mb-10 text-2xl fullHD:text-3xl 2K:text-5xl tracking-[2px]">
+                Спасибо за
                 заявку!</h2>
-            <p class="text-base fullHD:text-lg 2K:text-3xl mb-8 2K:mb-10">Мы свяжемся с вами в ближайшее время, чтобы подтвердить запись.</p>
+            <p class="text-base fullHD:text-lg 2K:text-3xl mb-8 2K:mb-10">Мы свяжемся с вами в ближайшее время, чтобы
+                подтвердить запись.</p>
             <button
-                class="btn bg-(--primary) text-(--bg) text-center hover:translate-y-[-1px] hover:shadow-[0_10px_40px_-10px_var(--primary)] transition-all duration-300"
+                class="btn bg-primary text-bg text-center hover:translate-y-[-1px] hover:shadow-[0_10px_40px_-10px_#EF567C] transition-all duration-300"
                 onclick="closeSuccessModal()">Понятно</button>
         </div>
     </div>
@@ -606,21 +673,20 @@
     <!-- Floating Button -->
     <div>
         <button data-action="open-modal"
-            class="floating-book-btn fixed bottom-5 left-5 px-8 border-none shadow-[0_5px_15px_rgba(0,0,0,0.3)] h-12 gap-2 text-base font-semibold z-40 bg-(--primary) text-(--bg) flex items-center rounded-(--border-radius-full) transition-opacity duration-500 ease-out opacity-0 pointer-events-none lg:hidden"
+            class="floating-book-btn fixed bottom-5 left-5 px-8 border-none shadow-[0_5px_15px_rgba(0,0,0,0.3)] h-12 gap-2 text-base font-semibold z-40 bg-primary text-bg flex items-center rounded-(--border-radius-full) transition-opacity duration-500 ease-out opacity-0 pointer-events-none lg:hidden"
             id="floatingBookBtn">
             <i class="fas fa-calendar-check"></i> Записаться
         </button>
     </div>
 
-    <script src="JS_PHP/script.js?v=0.95"></script>
-    <!-- <script src="JS_PHP/cokies.js"></script> -->
+    <script src="JS_PHP/script.js?v=0.9826626248946516598485165298878"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
 
-    <script src="JS_PHP/forms.js?v=0.9"></script>
-    <script src="JS_PHP/ourTeams.js?v=0.9"></script>
-    <script src="JS_PHP/testimonials.js?v=0.9"></script>
-    <script src="JS_PHP/loadContent.js?v=0.9"></script>
+    <script src="JS_PHP/forms.js?v=0.9888885621656488888888888"></script>
+    <script src="JS_PHP/ourTeams.js?v=0.988887785454515584515888"></script>
+    <script src="JS_PHP/testimonials.js?v=0.9888626265994626269566888"></script>
+    <script src="JS_PHP/loadContent.js?v=0.9888884945626262626268"></script>
 
 </body>
 

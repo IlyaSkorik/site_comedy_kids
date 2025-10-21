@@ -26,9 +26,9 @@ window.addEventListener('scroll', () => {
 
     if (window.scrollY > 100) {
         header.classList.remove('bg-transparent');
-        header.classList.add('bg-[var(--bg)]');
+        header.classList.add('bg-bg');
     } else {
-        header.classList.remove('bg-[var(--bg)]');
+        header.classList.remove('bg-bg');
         header.classList.add('bg-transparent');
     }
 });
@@ -49,8 +49,8 @@ document.querySelectorAll('img[data-src]').forEach(img => {
 
 // === Кнопка "Наверх" ===
 const scrollToTopBtn = document.createElement('button');
-scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-scrollToTopBtn.className = 'fixed bottom-5 right-5 text-xs 2K:text-xl w-12 2K:w-20 h-12 2K:h-20 bg-(--secondary) text-(--text) border-none rounded-[50%] cursor-pointer flex items-center justify-center shadow=[0_5px_15px_rgba(0,0,0,0.3)] z- transition-all duration-300 ease-linear opacity-0 pointer-events-none hover:bg-(--primary) hover:text-(--bg) hover:translate-y-[-3px] hover:shadow-[0_8px_25px_rgba(139,0,139,0.4);]';
+scrollToTopBtn.innerHTML = '<svg class="w-5 2K:w-10 h-5 2K:h-10 fill-text hover:fill-bg transition-all duration-300 hover:scale-110" id="svg-next-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" /></svg>';
+scrollToTopBtn.className = 'fixed bottom-5 right-5 text-xs 2K:text-xl w-12 2K:w-20 h-12 2K:h-20 bg-secondary text-text border-none rounded-[50%] cursor-pointer flex items-center justify-center shadow=[0_5px_15px_rgba(0,0,0,0.3)] z- transition-all duration-300 ease-linear opacity-0 pointer-events-none hover:bg-primary hover:text-bg hover:translate-y-[-3px] hover:shadow-[0_8px_25px_rgba(139,0,139,0.4);]';
 document.body.appendChild(scrollToTopBtn);
 
 scrollToTopBtn.addEventListener('click', () => {
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (window.scrollY < 100) {
             header.classList.remove('bg-transparent');
-            header.classList.add('bg-[var(--bg)]');
+            header.classList.add('bg-bg');
         }        
     }
 
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (window.scrollY > 100) return;
         else {
-            header.classList.remove('bg-[var(--bg)]');
+            header.classList.remove('bg-bg');
             header.classList.add('bg-transparent');
         }        
     }

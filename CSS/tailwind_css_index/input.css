@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {  
+   
+        --font-raleway: "Raleway", sans-serif;
+        --color-*: initial;
+        --color-text: #ffffff;
+        --color-bg: #3F1653;
+        --color-primary: #fab20a;
+        --color-secondary: #7817A8;
+        --color-accent: #EF567C;
+        --color-secondary30: hsl(280, 76%, 37%, 30%);
+        --color-secondary50: hsl(280, 76%, 37%, 50%);
+        --secondary70: hsl(280, 76%, 37%, 70%);
+        --color-border: rgba(214, 196, 255, 0.3);
+        --color-shadow: rgba(0, 0, 0, 0.2);
+        --line-height: 1.6;
+        --container-padding: 20px;
+        --section-padding: 0  0 100px 0  ;
+        --border-radius-sm: 10px;
+        --border-radius-md: 20px;
+        --border-radius-lg: 25px;
+        --border-radius-full: 10px;
+        --btn-padding: 10px 24px;
+        --btn-large-padding: 16px 32px;
+        --btn-font-size: 16px;
+        --btn-large-font-size: 18px;
+        --transition: all 0.3s ease;
+        --animation-speed: 0.3s; 
+        --breakpoint-fullHD: 115rem; 
+        --breakpoint-2K: 155rem; 
+}
+
+@layer components {
+  .nav-link::after {
+    @apply absolute bottom-[-5px] left-0 h-0.5 w-0 bg-primary transition-[width] duration-[var(--animation-speed)] content-[''];
+  }
+  .nav-link:hover::after {
+        @apply w-[100%];
+    }
+  
+  .hamburger.active span:nth-child(1) {
+    @apply rotate-45 translate-[2px] translate-y-[7px];
+  }
+
+  .hamburger.active span:nth-child(2) {
+    @apply -rotate-45 translate-[2px] -translate-y-[7px];  
+  }
+  .btn{
+    @apply    px-5
+              fullHD:px-8
+              2K:px-10
+              py-6
+              h-[52px]
+              fullHD:h-[62px]
+              2K:h-[92px]
+              rounded-[var(--border-radius-full)]
+              2K:rounded-2xl
+              font-semibold
+              cursor-pointer
+              no-underline
+              flex
+              items-center
+              text-center
+              justify-center
+              gap-2
+              text-lg
+              fullHD:text-xl
+              2K:text-4xl
+              border-none
+              transition-all
+              duration-300
+              ease-linear
+
+  }
+
+  /* Показываем описание на активной карточке */
+.team-card.active .team-info {
+  @apply transform translate-y-0 opacity-100;
+}
+
+}
+
+@layer utilities {
+  .animate-fade-in-up-delayed {
+    animation: fadeInUp 1s ease 0.4s both;
+  }
+  .gradient-text {
+    background: linear-gradient(120deg, #fab20a, #EF567C);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-slide 2.5s ease infinite alternate;
+}
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-slide {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

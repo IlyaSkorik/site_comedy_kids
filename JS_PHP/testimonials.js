@@ -48,7 +48,7 @@ function closeModal() {
     }, 300); // должно совпадать с duration-300
 }
 
-// Инициализация модальных окон (вызывать ПОСЛЕ генерации отзывов)
+// Инициализация модальных окон
 function initTestimonialModals() {
     let modal = document.querySelector('#review-modal');
     if (!modal) {
@@ -56,9 +56,9 @@ function initTestimonialModals() {
         modal.id = 'review-modal';
         modal.className = 'fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.6)] flex justify-center items-center z-[9999] opacity-0 pointer-events-none transition-opacity duration-300';
         modal.innerHTML = `
-            <div class="bg-[var(--bg)] overflow-y-auto p-7 2K:p-14 rounded-2xl w-4/5 max-w-3/4 shadow-[0_10px_40px_rgba(0,0,0,0.3)] opacity-0 scale-95 transition-all duration-300 ease-out transform relative">
-                <span class="absolute top-3.5 right-5 text-2xl fullHD:text-3xl 2K:text-4xl font-medium cursor-pointer transition-colors duration-200 hover:text-[var(--primary)]" id="modal-close">&times;</span>
-                <p class="m-0 fullHD:text-lg 2K:text-3xl 2K:leading-12 whitespace-pre-wrap" id="modal-review-text"></p>
+            <div class="bg-bg overflow-y-auto p-7 2K:p-14 rounded-2xl w-4/5 max-w-3/4 shadow-[0_10px_40px_rgba(0,0,0,0.3)] opacity-0 scale-95 transition-all duration-300 ease-out transform relative">
+                <span class="absolute top-3.5 right-5 text-2xl fullHD:text-3xl 2K:text-4xl font-medium cursor-pointer transition-colors duration-200 hover:text-primary" id="modal-close">&times;</span>
+                <p class="m-0 text-sm fullHD:text-lg 2K:text-3xl 2K:leading-12 whitespace-pre-wrap" id="modal-review-text"></p>
             </div>
         `;
         document.body.appendChild(modal);
@@ -126,13 +126,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 desktopSlide.innerHTML = `
         <div class="grid grid-cols-2 gap-4 2K:gap-8 mb-8 w-full">
             ${chunk.map(t => `
-                <div class="max-h-56 fullHD:min-h-72 2K:min-h-[600px] bg-[var(--secondary50)] rounded-[var(--border-radius-md)] 2K:rounded-4xl shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-row">
+                <div class="max-h-56 fullHD:min-h-72 2K:min-h-[600px] bg-secondary50 rounded-[var(--border-radius-md)] 2K:rounded-4xl shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-row">
                     <div class="relative flex-1 aspect-square max-w-40 fullHD:max-w-52 2K:max-w-96">
                         <img class="w-full h-full object-cover transition-transform duration-300 ease" src="${t.image}?t=${Date.now()}" alt="${t.name}" loading="lazy">
                     </div>
                     <div class="flex flex-2 flex-col justify-start p-6 2K:p-12">
-                        <div class="mb-2.5 fullHD:mb-5 text-[var(--text)] text-sm z-[1]">
-                            <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 2K:mb-8 text-2xl fullHD:text-3xl 2K:text-5xl text-[var(--primary)]">${t.name}</h4>
+                        <div class="mb-2.5 fullHD:mb-5 text-text text-sm z-[1]">
+                            <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 2K:mb-8 text-2xl fullHD:text-3xl 2K:text-5xl text-primary">${t.name}</h4>
                             <span class="m-0 text-lg opacity-90">${t.role}</span>
                         </div>
                         <div class="testimonial-item">
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </p>
                             ${t.text.length > sizeoftext? `
                             <div class="testimonial-item w-full flex justify-end mt-4">
-                                <button type="button" class="btn-read-more bg-[var(--primary)] text-[var(--bg)] p-1.5 px-3 rounded-3xl text-xs fullHD:text-sm 2K:text-xl font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full="${escapeHtml(t.text)}">
+                                <button type="button" class="btn-read-more bg-primary text-bg p-1.5 px-3 rounded-3xl text-xs fullHD:text-sm 2K:text-xl font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full="${escapeHtml(t.text)}">
                                     Читать больше
                                     <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
                                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>
@@ -164,13 +164,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 mobileSlide.className = 'testimonial-slide mobile-version block relative w-full h-auto';
                 mobileSlide.innerHTML = `
                 <div class="testimonials-container testimonials-container-mobile min-h-[430px] grid grid-cols-1 mb-8 w-full h-full">
-                    <div class="testimonial-card active bg-[var(--secondary50)] rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-col">
+                    <div class="testimonial-card active bg-secondary50 rounded-[var(--border-radius-md)] shadow-[0_10px_30px_var(--color-shadow)] relative overflow-hidden flex flex-col">
                         <div class="relative mt-4 w-full h-52 max-w-full aspect-auto flex justify-center">
                             <img class="w-40 h-52 rounded-(--border-radius-md) object-cover transition-transform duration-300 ease" src="${t.image}?t=${Date.now()}" alt="${t.name}" loading="lazy">
                         </div>
                         <div class="flex h-full my-0 flex-col px-4 pt-4">
                             <div class="text-sm text-center mb-4">
-                                <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 text-xl text-[var(--primary)]">${t.name}</h4>
+                                <h4 class="font-[Dela_Gothic_One] tracking-[1px] m-0 text-xl text-primary">${t.name}</h4>
                                 <span class="m-0 text-lg opacity-90">${t.role}</span>
                             </div>
                             <p class="text-sm opacity-90 m-0" >
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         ${t.text.length > 200 ? `
                             <div class="testimonial-item w-full flex justify-end mt-1 pr-4 pb-4">
-                                <button type="button" class="btn-read-more bg-[var(--primary)] text-[var(--bg)] p-1 px-2 rounded-3xl text-xs font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full='${escapeHtml(t.text)}'>
+                                <button type="button" class="btn-read-more bg-primary text-bg p-1 px-2 rounded-3xl text-xs font-semibold cursor-pointer flex items-center gap-1.5 shadow-[0_4px_10px_rgba(255,100,0,0.3)] transition-all duration-300 ease-linear hover:-translate-y-0.5" data-full='${escapeHtml(t.text)}'>
                                     Читать больше
                                     <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
                                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>
@@ -249,7 +249,7 @@ function initTestimonialsSlider() {
             'ease-linear'
         );
         indicator.id = 'indicator-dot'
-        if (i === 0) indicator.classList.add('bg-(--accent)', 'scale-140');
+        if (i === 0) indicator.classList.add('bg-accent', 'scale-140');
         indicator.addEventListener('click', () => goToSlide(i));
         if (indicatorsContainer) {
             indicatorsContainer.appendChild(indicator);
@@ -354,29 +354,29 @@ function initTestimonialsSlider() {
         // Обновляем кнопки
         if (prevBtn) {
             if (currentIndex === 0) {
-                prevBtn.classList.remove('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
-                svgprevBtn.classList.remove('fill-(--bg)')
-                prevBtn.classList.add('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
-                svgprevBtn.classList.add('fill-(--text)', 'opacity-80')
+                prevBtn.classList.remove('bg-primary', 'cursor-pointer', 'hover:scale-110');
+                svgprevBtn.classList.remove('fill-bg')
+                prevBtn.classList.add('bg-secondary50', 'cursor-not-allowed', 'transform-none');
+                svgprevBtn.classList.add('fill-text', 'opacity-80')
             } else {
-                prevBtn.classList.remove('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
-                svgprevBtn.classList.remove('fill-(--text)', 'opacity-80')
-                prevBtn.classList.add('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
-                svgprevBtn.classList.add('fill-(--bg)')
+                prevBtn.classList.remove('bg-secondary50', 'cursor-not-allowed', 'transform-none');
+                svgprevBtn.classList.remove('fill-text', 'opacity-80')
+                prevBtn.classList.add('bg-primary', 'cursor-pointer', 'hover:scale-110');
+                svgprevBtn.classList.add('fill-bg')
             }
         }
 
         if (nextBtn) {
             if (currentIndex === slides.length - 1) {
-                nextBtn.classList.remove('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
-                svgnextBtn.classList.remove('fill-(--bg)')
-                nextBtn.classList.add('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
-                svgnextBtn.classList.add('fill-(--text)', 'opacity-80')
+                nextBtn.classList.remove('bg-primary', 'cursor-pointer', 'hover:scale-110');
+                svgnextBtn.classList.remove('fill-bg')
+                nextBtn.classList.add('bg-secondary50', 'cursor-not-allowed', 'transform-none');
+                svgnextBtn.classList.add('fill-text', 'opacity-80')
             } else {
-                nextBtn.classList.remove('bg-(--secondary50)', 'cursor-not-allowed', 'transform-none');
-                svgnextBtn.classList.remove('fill-(--text)', 'opacity-80')
-                nextBtn.classList.add('bg-(--primary)', 'cursor-pointer', 'hover:scale-110');
-                svgnextBtn.classList.add('fill-(--bg)')
+                nextBtn.classList.remove('bg-secondary50', 'cursor-not-allowed', 'transform-none');
+                svgnextBtn.classList.remove('fill-text', 'opacity-80')
+                nextBtn.classList.add('bg-primary', 'cursor-pointer', 'hover:scale-110');
+                svgnextBtn.classList.add('fill-bg')
             }
         }
 
@@ -384,10 +384,10 @@ function initTestimonialsSlider() {
         const indicatorDots = document.querySelectorAll('#slider-indicators #indicator-dot');
         indicatorDots.forEach((indicator, index) => {
             if (index === currentIndex) {
-                indicator.classList.add('bg-(--accent)', 'scale-140');
+                indicator.classList.add('bg-accent', 'scale-140');
                 indicator.classList.remove('bg-(--secondary70)');
             } else {
-                indicator.classList.remove('bg-(--accent)', 'scale-140');
+                indicator.classList.remove('bg-accent', 'scale-140');
                 indicator.classList.add('bg-(--secondary70)');
             }
         });

@@ -1,79 +1,81 @@
-/**
- * ourTeams.js — Слайдер команд COMEDY KIDS
- * Полностью динамический, с поддержкой свайпа и адаптивности
- */
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Данные команд и индекс текущего слайда
+document.addEventListener('DOMContentLoaded', function () {
     let teamData = [];
     let teamCurrentIndex = 0;
 
-    // Элементы DOM
     const teamSlidesContainer = document.getElementById('teamSlidesContainer');
     const teamDotsContainer = document.getElementById('teamDotsContainer');
     const teamNavPrev = document.getElementById('teamNavPrev');
     const teamNavNext = document.getElementById('teamNavNext');
     const sliderArea = document.getElementById('team-slides-wrapper');
 
-    // Проверка существования контейнера
     if (!teamSlidesContainer) {
         console.warn('Контейнер слайдера команд не найден');
         return;
     }
 
     /**
-     * Загрузка данных команд с сервера
+     * Предзагрузка изображений (чтобы избежать мигания)
+     */
+    function preloadImages(imageUrls) {
+        const promises = imageUrls.map(url => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = img.onerror = resolve; // загрузился или ошибка — всё равно продолжаем
+                img.src = url;
+            });
+        });
+        return Promise.all(promises);
+    }
+
+    /**
+     * Загрузка данных команд
      */
     async function loadTeams() {
         try {
-            // 🔁 ВАЖНО: добавляем ?t=timestamp, чтобы избежать кэширования
+            // Загружаем данные с timestamp, чтобы обойти кэш JSON
             const response = await fetch('/data/teams.json?t=' + Date.now());
-            
-            if (!response.ok) {
-                throw new Error(`Ошибка загрузки: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
+            const rawData = await response.json();
+            if (!Array.isArray(rawData)) throw new Error('Неверный формат данных');
 
-            const data = await response.json();
-
-            // Проверка формата
-            if (!Array.isArray(data)) {
-                throw new Error('Неверный формат данных: ожидается массив');
-            }
-
-            // Обновляем данные
-            teamData = data.map(team => ({
+            // Подготавливаем данные: добавляем timestamp к изображениям ТОЛЬКО при первой загрузке
+            // Это обновит картинки, если они изменились на сервере
+            teamData = rawData.map(team => ({
                 id: team.id || Date.now(),
-                description: team.age || 'Описание не указанно',
-                image: team.image || 'img/team/default.jpg',
+                description: team.age || 'Описание не указано',
+                image: team.image ? `${team.image}?t=${Date.now()}` : 'img/team/default.jpg',
                 alt: team.name || 'Команда',
                 achievements: Array.isArray(team.achievements) ? team.achievements : []
             }));
 
-            // Пересоздаём слайды
+            // Предзагружаем изображения
+            const imageUrls = teamData.map(t => t.image);
+            await preloadImages(imageUrls);
+
             createTeamSlides();
             createTeamDots();
             teamUpdateSlider();
-
         } catch (error) {
             console.error('❌ Ошибка при загрузке команд:', error);
-            
-            // Резервные данные на случай сбоя
+            // Резервные данные — тоже с timestamp для актуальности
             teamData = [
                 {
                     id: 1,
                     description: 'Чемпионы 2023',
-                    image: 'img/team/draniki.jpg',
+                    image: 'img/team/draniki.jpg?t=' + Date.now(),
                     alt: 'Минские дранники',
                     achievements: ['Лучшие шутки', 'Топ-3 по музыке']
                 },
                 {
                     id: 2,
                     description: 'Финалисты 2024',
-                    image: 'img/team/kirpichi.jpg',
+                    image: 'img/team/kirpichi.jpg?t=' + Date.now(),
                     alt: 'Горячие кирпичи',
                     achievements: ['Лучшая игра', 'Приз зрительских симпатий']
                 }
             ];
+            const imageUrls = teamData.map(t => t.image);
+            preloadImages(imageUrls); // без await — не критично для резерва
 
             createTeamSlides();
             createTeamDots();
@@ -82,124 +84,127 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * Создаёт три слайда: предыдущий, активный, следующий
+     * Создаём все слайды один раз
      */
     function createTeamSlides() {
         teamSlidesContainer.innerHTML = '';
-
-        const prevSlide = document.createElement('div');
-        prevSlide.className = 'absolute w-[350px] fullHD:w-[400px] 2K:w-[600px] h-[500px] fullHD:h-[550px] 2K:h-[900px] right-0 lg:right-[100%] scale-80 rounded-2xl overflow-hidden grayscale-60 brightness-90 opacity-70 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12';
-        prevSlide.id = 'teamSlidePrev';
-
-        const activeSlide = document.createElement('div');
-        activeSlide.className = 'team-slide-active absolute w-[350px] fullHD:w-[400px] 2K:w-[600px] h-[500px] fullHD:h-[550px] 2K:h-[900px] left-[50%] translate-x-[-50%] rounded-2xl overflow-hidden transition-all duration-500 ease cursor-pointer z-[4] bottom-12';
-        activeSlide.id = 'teamSlideActive';
-
-        const nextSlide = document.createElement('div');
-        nextSlide.className = "absolute w-[350px] fullHD:w-[400px] 2K:w-[600px] h-[500px] fullHD:h-[550px] left-0 lg:left-[100%] 2K:h-[900px] scale-80 rounded-2xl overflow-hidden grayscale-60 opacity-70 brightness-90 shadow-[0_4px_15px_rgba(0,0,0,0.3)] transition-all duration-500 ease cursor-pointer z-[3] bottom-12";
-        nextSlide.id = 'teamSlideNext';
-
-        teamSlidesContainer.appendChild(prevSlide);
-        teamSlidesContainer.appendChild(activeSlide);
-        teamSlidesContainer.appendChild(nextSlide);
+        teamData.forEach((team, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'team-slide absolute w-full xl:w-[350px] fullHD:w-[400px] 2K:w-[600px] h-[500px] fullHD:h-[550px] 2K:h-[900px] rounded-2xl overflow-hidden transition-all duration-500 ease cursor-pointer bottom-12';
+            slide.dataset.index = index;
+            slide.innerHTML = createTeamCard(team, false);
+            teamSlidesContainer.appendChild(slide);
+        });
     }
 
     /**
-     * Создаёт индикаторы (точки) под слайдером
+     * Создаём точки
      */
     function createTeamDots() {
         teamDotsContainer.innerHTML = '';
         teamData.forEach((_, index) => {
             const dot = document.createElement('div');
-            dot.className = 'team-dot-item w-2 2K:w-[10px] h-2 2K:h-[10px] rounded-[50%] cursor-pointer transition-all duration-300';
-            if (index === teamCurrentIndex) dot.classList.add('bg-(--accent)'); else dot.classList.add('bg-(--secondary70)');
+            dot.className = 'team-dot-item w-2 2K:w-[10px] h-2 2K:h-[10px] rounded-[50%] cursor-pointer transition-all duration-300 bg-secondary50';
             dot.dataset.index = index;
             dot.title = `Команда ${index + 1}`;
             teamDotsContainer.appendChild(dot);
         });
+        updateDots();
     }
 
     /**
-     * Генерирует HTML карточки команды
+     * Генерация карточки БЕЗ ?t= в img — изображение уже с timestamp в данных!
      */
     function createTeamCard(data, isActive = false) {
-    if (!data) return `
-        <div class="relative w-full h-full bg-[var(--bg)] rounded-[var(--border-radius-md)] 2K:rounded-4xl overflow-hidden shadow-[0_10px_25px_var(--color-shadow)] transition-all duration-300 ease-in flex flex-col">
-            Нет данных
-        </div>
-    `;
-
-    const achievementsHtml = isActive && Array.isArray(data.achievements) 
-        ? `<div class="absolute p-4 w-full flex gap-2 justify-center flex-wrap">
-            ${data.achievements.map(ach => 
-                `<span class="bg-[var(--accent)] px-4 py-1.5 rounded-2xl 2K:rounded-4xl text-xs fullHD:text-sm 2K:text-2xl flex items-center gap-1 transition-all duration-300 ease">
-                    <i class="fas fa-star"></i> ${ach}
-                </span>`
-            ).join('')}
-          </div>`
-        : '';
-
-    return `
-        <div class="team-card relative w-full h-full bg-[var(--bg)] rounded-[var(--border-radius-md)] overflow-hidden shadow-[0_10px_25px_var(--color-shadow)] transition-all duration-300 ease flex flex-col">
-            <div class="relative flex-1 overflow-hidden rounded-[var(--border-radius-md)]">
-                <img class="w-full h-full object-cover transition-all duration-300 ease" src="${data.image}?t=${Date.now()}" alt="${data.alt}" loading="lazy">
+        if (!data) return `
+            <div class="relative w-full h-full bg-bg rounded-[var(--border-radius-md)] 2K:rounded-4xl overflow-hidden shadow-[0_10px_25px_var(--color-shadow)] flex flex-col">
+                Нет данных
             </div>
-            ${achievementsHtml}
-            <div class="team-info absolute bottom-0 left-0 right-0 p-6 bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)] rounded-b-[var(--border-radius-md)] transition-transform duration-300 ease ${isActive ? 'opacity-100' : 'opacity-0'} ">
-                <p class="text-sm fullHD:text-base 2K:text-3xl leading-[1.6] mb-3.5">${data.description}</p>
-            </div>
-        </div>
-    `;
-}
+        `;
 
-    /**
-     * Обновляет отображение слайдера
-     */
+        const achievementsHtml = isActive && Array.isArray(data.achievements)
+            ? `<div class="absolute p-4 w-full flex gap-2 justify-center flex-wrap">
+                ${data.achievements.map(ach =>
+                    `<span class="bg-accent px-4 py-1.5 rounded-2xl 2K:rounded-4xl text-xs fullHD:text-sm 2K:text-2xl flex items-center gap-1">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg> ${ach}
+                    </span>`
+                ).join('')}
+              </div>`
+            : '';
+
+        // ❗ ВАЖНО: data.image УЖЕ содержит ?t=... (если нужно), поэтому просто вставляем его
+        return `
+            <div class="team-card relative w-full h-full bg-bg rounded-[var(--border-radius-md)] overflow-hidden shadow-[0_10px_25px_var(--color-shadow)] flex flex-col">
+                <div class="relative flex-1 overflow-hidden rounded-[var(--border-radius-md)]">
+                    <img class="w-full h-full object-cover" src="${data.image}" alt="${data.alt}" loading="lazy">
+                </div>
+                ${achievementsHtml}
+                <div class="team-info absolute bottom-0 left-0 right-0 p-6 bg-[linear-gradient(transparent,#270e3490,#270e34bd,#270e34bd,#270e34bd,#270e34c8,#270e34cc,#270e34df,#270e34)] rounded-b-[var(--border-radius-md)] transition-opacity duration-300 ease ${isActive ? 'opacity-100' : 'opacity-0'}">
+                    <p class="text-sm fullHD:text-base 2K:text-3xl leading-[1.6] mb-3.5">${data.description}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    function updateDots() {
+        document.querySelectorAll('.team-dot-item').forEach((dot, index) => {
+            if (index === teamCurrentIndex) {
+                dot.className = 'team-dot-item w-2 2K:w-[10px] h-2 2K:h-[10px] rounded-[50%] cursor-pointer transition-all duration-300 bg-accent scale-140';
+            } else {
+                dot.className = 'team-dot-item w-2 2K:w-[10px] h-2 2K:h-[10px] rounded-[50%] cursor-pointer transition-all duration-300 bg-secondary50';
+            }
+        });
+    }
+
+    function positionSlides() {
+        const slides = document.querySelectorAll('.team-slide');
+        const total = teamData.length;
+
+        slides.forEach((slide, index) => {
+            const diff = index - teamCurrentIndex;
+            let normalizedDiff = ((diff % total) + total) % total;
+            if (normalizedDiff > total / 2) normalizedDiff -= total;
+
+            slide.style.zIndex = String(10 - Math.abs(normalizedDiff));
+
+            if (index === teamCurrentIndex) {
+                slide.style.left = '50%';
+                slide.style.transform = 'translateX(-50%) scale(1)';
+                slide.style.opacity = '1';
+                slide.style.filter = 'grayscale(0%) brightness(1)';
+                slide.style.pointerEvents = 'auto';
+                slide.innerHTML = createTeamCard(teamData[index], true);
+            } else if (normalizedDiff === -1 || (teamCurrentIndex === 0 && index === total - 1)) {
+                slide.style.left = '0';
+                slide.style.transform = 'translateX(-50%) scale(0.8)';
+                slide.style.opacity = '0.7';
+                slide.style.filter = 'grayscale(60%) brightness(0.9)';
+                slide.style.pointerEvents = 'auto';
+                slide.innerHTML = createTeamCard(teamData[index], false);
+            } else if (normalizedDiff === 1 || (teamCurrentIndex === total - 1 && index === 0)) {
+                slide.style.left = '100%';
+                slide.style.transform = 'translateX(-50%) scale(0.8)';
+                slide.style.opacity = '0.7';
+                slide.style.filter = 'grayscale(60%) brightness(0.9)';
+                slide.style.pointerEvents = 'auto';
+                slide.innerHTML = createTeamCard(teamData[index], false);
+            } else {
+                slide.style.opacity = '0';
+                slide.style.pointerEvents = 'none';
+                // Даже для скрытых — обновляем, но можно оптимизировать
+                slide.innerHTML = createTeamCard(teamData[index], false);
+            }
+        });
+    }
+
     function teamUpdateSlider() {
         if (teamData.length === 0) return;
+        positionSlides();
+        updateDots();
+    }
 
-        const activeSlide = document.getElementById('teamSlideActive');
-        const prevSlide = document.getElementById('teamSlidePrev');
-        const nextSlide = document.getElementById('teamSlideNext');
-
-        // Плавное исчезновение
-        [activeSlide, prevSlide, nextSlide].forEach(slide => {
-            if (slide) slide.style.opacity = '0';
-        });
-
-        setTimeout(() => {
-            // Активный слайд — с достижениями
-            if (activeSlide && teamData[teamCurrentIndex]) {
-                activeSlide.innerHTML = createTeamCard(teamData[teamCurrentIndex], true);
-                activeSlide.style.opacity = '1';
-            }
-
-            // Предыдущий слайд
-            const prevIndex = (teamCurrentIndex - 1 + teamData.length) % teamData.length;
-            if (prevSlide && teamData[prevIndex]) {
-                prevSlide.innerHTML = createTeamCard(teamData[prevIndex], false);
-                prevSlide.style.opacity = '1';
-            }
-
-            // Следующий слайд
-            const nextIndex = (teamCurrentIndex + 1) % teamData.length;
-            if (nextSlide && teamData[nextIndex]) {
-                nextSlide.innerHTML = createTeamCard(teamData[nextIndex], false);
-                nextSlide.style.opacity = '1';
-            }
-
-            // Обновляем точки
-            document.querySelectorAll('.team-dot-item').forEach((dot, index) => {
-                if (index === teamCurrentIndex) {
-                    dot.className = 'team-dot-item w-2 h-2 rounded-[50%] cursor-pointer transition-all duration-300 bg-[var(--accent)] scale-140';
-                } else {
-                    dot.className = 'team-dot-item w-2 h-2 rounded-[50%] cursor-pointer transition-all duration-300 bg-[var(--secondary70)]';
-                }
-});
-}, 150);
-}
-
-    // Навигация
     function teamNextSlide() {
         teamCurrentIndex = (teamCurrentIndex + 1) % teamData.length;
         teamUpdateSlider();
@@ -217,25 +222,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Обработчики кнопок
     if (teamNavPrev) teamNavPrev.addEventListener('click', teamPrevSlide);
     if (teamNavNext) teamNavNext.addEventListener('click', teamNextSlide);
 
-    // Обработчики кликов по слайдам
     document.addEventListener('click', (e) => {
-        const target = e.target;
+        const clickedSlide = e.target.closest('.team-slide');
+        if (clickedSlide && getComputedStyle(clickedSlide).opacity !== '0') {
+            const index = parseInt(clickedSlide.dataset.index);
+            if (!isNaN(index) && index !== teamCurrentIndex) {
+                teamGoToSlide(index);
+            }
+        }
 
-        if (target.closest('#teamSlidePrev')) teamPrevSlide();
-        if (target.closest('#teamSlideNext')) teamNextSlide();
-
-        const dot = target.closest('.team-dot-item');
+        const dot = e.target.closest('.team-dot-item');
         if (dot) {
             const index = parseInt(dot.dataset.index);
             if (!isNaN(index)) teamGoToSlide(index);
         }
     });
 
-    // Поддержка свайпа
+    // Свайп
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -244,26 +250,26 @@ document.addEventListener('DOMContentLoaded', function() {
             touchStartX = e.touches[0].clientX;
         }, { passive: true });
 
-        sliderArea.addEventListener('touchend', () => {
-            if (Math.abs(touchStartX - touchEndX) > 50) {
-                if (touchStartX < touchEndX) {
-                    teamPrevSlide(); // свайп вправо
-                } else {
-                    teamNextSlide(); // свайп влево
-                }
-            }
-        }, { passive: true });
-
         sliderArea.addEventListener('touchmove', e => {
             touchEndX = e.touches[0].clientX;
         }, { passive: true });
-    }
 
-   
+        sliderArea.addEventListener('touchend', () => {
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) teamNextSlide();
+                else teamPrevSlide();
+            }
+        }, { passive: true });
+    }
 
     // Запуск
     loadTeams();
 
-    // Адаптивность
-    window.addEventListener('resize', teamUpdateSlider);
+    // Адаптивность с дебаунсом
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(teamUpdateSlider, 150);
+    });
 });

@@ -296,13 +296,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const checkmark = container.querySelector('.checkmark');
 
         if (checkbox.checked) {
-            container.classList.remove('bg-transparent', 'border-(--text)');
-            container.classList.add('bg-(--primary)', 'border-(--primary)');
+            container.classList.remove('bg-transparent', 'border-text');
+            container.classList.add('bg-primary', 'border-primary');
             checkmark.classList.add('opacity-100');
             checkmark.classList.remove('opacity-0');
         } else {
-            container.classList.add('bg-transparent', 'border-(--text)');
-            container.classList.remove('bg-(--primary)', 'border-(--primary)');
+            container.classList.add('bg-transparent', 'border-text');
+            container.classList.remove('bg-primary', 'border-primary');
             checkmark.classList.add('opacity-0');
             checkmark.classList.remove('opacity-100');
         }
