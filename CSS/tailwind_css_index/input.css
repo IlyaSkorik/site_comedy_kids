@@ -47,11 +47,14 @@
     @apply -rotate-45 translate-[2px] -translate-y-[7px];  
   }
   .btn{
-    @apply    px-5
+    @apply    px-3
+              lg:px-5
               fullHD:px-8
               2K:px-10
-              py-6
-              h-[52px]
+              py-3
+              lg:py-6
+              h-[42px]
+              lg:h-[52px]
               fullHD:h-[62px]
               2K:h-[92px]
               rounded-[var(--border-radius-full)]
@@ -64,7 +67,8 @@
               text-center
               justify-center
               gap-2
-              text-lg
+              text-base
+              lg:text-lg
               fullHD:text-xl
               2K:text-4xl
               border-none
