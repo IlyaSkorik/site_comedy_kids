@@ -33,7 +33,7 @@
             <div class="my-0 lg:mx-[3%] px-5 flex items-center justify-between">
                 <!-- Логотип -->
                 <a href="#home"
-                    class="cursor-pointer text-decoration-line scale-85 2K:scale-120  hover:scale-95 2K:hover:scale-130">
+                    class="cursor-pointer text-decoration-line scale-85 2K:scale-120 transition-transform duration-300 hover:scale-95 2K:hover:scale-130">
                     <div class="flex items-center gap-0 transition-transform duration-300">
                         <img src="img/logo/logo.png" alt="Логотип" class="h-[50px]">
                         <span class="text-primary scale-85 ml-[-3px]"
@@ -69,11 +69,11 @@
                 <!-- Контакт + кнопка (десктоп) -->
                 <div class="hidden md:flex items-center gap-[20px] 2K:gap-9">
                     <a href="tel:+375257772707"
-                        class="flex items-center gap-[8px] text-decoration-line fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"
+                        class="flex items-center fill-text hover:fill-primary gap-[8px] text-decoration-line fullHD:text-lg 2K:text-3xl font-semibold transition-colors duration-[var(--animation-speed)] relative hover:text-primary">
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                             class="bi bi-telephone-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
-                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                         </svg>
                         <span id="contact-phone">+375 (25) 777-27-07</span>
                     </a>
@@ -115,8 +115,13 @@
                     </ul>
                     <div class="pt-4 border-t border-[var(--color-border)] flex flex-col gap-4">
                         <a href="tel:+375257772707"
-                            class="flex items-center gap-3 font-medium text-text text-base hover:text-primary">
-                            <i class="fas fa-phone text-lg"></i> +375 (25) 777-27-07
+                            class="flex items-center fill-text gap-3 font-medium text-text text-base">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                            class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        <span>+375 (25) 777-27-07</span>
                         </a>
                         <button
                             class="bg-primary text-bg font-semibold text-base tracking-[1px] rounded-[var(--border-radius-full)] border-none p-[var(--btn-padding)] cursor-pointer w-full max-w-[280px]"
@@ -486,17 +491,21 @@
                     <h3
                         class="font-[Dela_Gothic_One] tracking-[1px] text-xl xl:text-2xl fullHD:text-3xl 2K:text-5xl mb-5 2K:mb-16 text-primary">
                         Контакты</h3>
-                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"><i
-                            class="fas fa-map-marker-alt"></i><span class="mb-2.5 opacity-90" id="contact-address">г.
-                            Минск, ул. Воронянского, д. </span></p>
+                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl flex flex-row mb-2.5 2K:mb-6 opacity-90">
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.37892 10.2236L8 16L12.6211 10.2236C13.5137 9.10788 14 7.72154 14 6.29266V6C14 2.68629 11.3137 0 8 0C4.68629 0 2 2.68629 2 6V6.29266C2 7.72154 2.4863 9.10788 3.37892 10.2236ZM8 8C9.10457 8 10 7.10457 10 6C10 4.89543 9.10457 4 8 4C6.89543 4 6 4.89543 6 6C6 7.10457 6.89543 8 8 8Z" fill="#ffffff"></path> </g></svg>
+                        <span class="mb-2.5 opacity-90" id="contact-address">г. Минск, ул. Воронянского, д. </span></p>
                     <a href="tel:+375257772707">
-                        <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"> <i
-                                class="fas fa-phone"></i><span id="contact-phone">+375
-                                (25)
-                                777-27-07</span></p>
+                        <p class="tetx-sm fullHD:text-lg 2K:text-3xl flex flex-row items-center mb-2.5 2K:mb-6 opacity-90"> 
+                            <svg class="w-5 h-5 mr-2 fill-text" xmlns="http://www.w3.org/2000/svg"
+                            class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                            </svg>
+                            <span id="contact-phone">+375 (25) 777-27-07</span></p>
                     </a>
-                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl mb-2.5 2K:mb-6 opacity-90"><i
-                            class="fas fa-envelope"></i> <span id="contact-email">comedykids@cubeup.by</span></p>
+                    <p class="tetx-sm fullHD:text-lg 2K:text-3xl flex flex-row items-center mb-2.5 2K:mb-6 opacity-90">
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 600 600" version="1.1" id="svg9724" sodipodi:docname="email-close.svg" inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs id="defs9728"></defs> <sodipodi:namedview id="namedview9726" pagecolor="#ffffff" bordercolor="#ffffff" borderopacity="1.0" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#ffffff" showgrid="true" inkscape:zoom="0.59480855" inkscape:cx="617.84586" inkscape:cy="313.54627" inkscape:window-width="1920" inkscape:window-height="1009" inkscape:window-x="0" inkscape:window-y="1080" inkscape:window-maximized="1" inkscape:current-layer="g10449" showguides="true"> <inkscape:grid type="xygrid" id="grid9972" originx="0" originy="0"></inkscape:grid> <sodipodi:guide position="300,520" orientation="1,0" id="guide385" inkscape:locked="false"></sodipodi:guide> </sodipodi:namedview> <g id="g10449" transform="matrix(0.95173205,0,0,0.95115787,13.901174,12.168794)" style="stroke-width:1.05103"> <g id="path10026" inkscape:transform-center-x="-0.59233046" inkscape:transform-center-y="-20.347403" transform="matrix(1.3807551,0,0,1.2700888,273.60014,263.99768)"></g> <g id="g11314" transform="matrix(1.5092301,0,0,1.3955555,36.774048,-9.4503933)" style="stroke-width:50.6951"></g> <path style="color:#ffffff;fill:#ffffff;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;paint-order:stroke fill markers" d="m 132.50586,39.773437 c -80.786884,0 -147.111329,66.380993 -147.111329,147.175783 v 231.32422 c 0,80.79479 66.324445,147.17578 147.111329,147.17578 h 336.20508 c 80.78688,0 147.11328,-66.38099 147.11328,-147.17578 V 186.94922 c 0,-80.79479 -66.3264,-147.175783 -147.11328,-147.175783 z m 0,84.082033 h 336.20508 c 35.63231,0 63.02929,27.39904 63.02929,63.09375 v 231.32422 c 0,35.69471 -27.39698,63.09375 -63.02929,63.09375 H 132.50586 c -35.63231,0 -63.029298,-27.39904 -63.029298,-63.09375 V 186.94922 c 0,-35.69471 27.396988,-63.09375 63.029298,-63.09375 z" id="rect240"></path> <path style="color:#ffffff;fill:#ffffff;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none" d="M 67.464844,81.886719 A 42.041302,42.041302 0 0 0 38.351562,95.591797 42.041302,42.041302 0 0 0 41.162109,154.98047 L 272.31836,365.25195 a 42.045506,42.045506 0 0 0 56.58008,0 L 560.05469,154.98047 a 42.041302,42.041302 0 0 0 2.81054,-59.388673 42.041302,42.041302 0 0 0 -59.38867,-2.808594 L 300.60937,277.31836 97.740234,92.783203 A 42.041302,42.041302 0 0 0 67.464844,81.886719 Z" id="path404"></path> <g id="g1810" transform="translate(-0.51901729)"> <path style="color:#ffffff;fill:#ffffff;-inkscape-stroke:none" d="m 418.54102,322.93555 -45.69727,43.45898 130.79492,137.53125 45.69727,-43.45898 z" id="path1686"></path> <path style="color:#ffffff;fill:#ffffff;-inkscape-stroke:none" d="M 183.54297,323.11719 52.748047,462.84961 98.787109,505.94531 229.58203,366.21289 Z" id="path1686-3"></path> </g> </g> </g></svg>
+                        <span id="contact-email">comedykids@cubeup.by</span></p>
                     <div class="flex gap-4 mt-5">
 
                         <a href="http://t.me/C0medyKIDS" target="_blank"
