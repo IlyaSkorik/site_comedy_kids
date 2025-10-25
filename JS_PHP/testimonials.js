@@ -102,13 +102,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const container = document.getElementById('testimonials-container');
             let sizeoftext = 200;
             switch (true){
-                case window.innerWidth >= 2480:
-                    sizeoftext = 360;
-                    break;
-                case window.innerWidth >= 1540:
+                case window.innerWidth >= 2480 || window.innerWidth >= 1540:
                     sizeoftext = 300;
                     break;
-                default:
+                default:    
                     sizeoftext = 200;
                     break;
             }
